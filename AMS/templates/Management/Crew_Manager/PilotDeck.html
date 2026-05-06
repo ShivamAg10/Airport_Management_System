@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block nav_titles %}
+    <ul class="nav-links">
+        <li><a href="{% url 'Crew_Manager' %}">Home</a></li>
+        <li><a href="{% url 'MissionHub' %}">MissionHub</a></li>
+        <li><a href="{% url 'PilotDeck' %}" class="active">PilotDeck</a></li>
+        <li><a href="{% url 'HostessDeck' %}">HostessDeck</a></li>
+        <li><a href="{% url 'DutyRoster' %}">DutyRoster</a></li>
+        <li><a href="{% url 'LeaveDesk' %}">LeaveDesk</a></li>
+    </ul>
+{% endblock %}
+
+{% block login_option %}
+    <div class="nav-right">
+    <div class="profile-dropdown">
+        <button class="profile-trigger">
+            <div class="avatar-wrapper">
+            <div class="user-avatar">A</div>
+            <span class="status-indicator"></span> </div>
+        <div class="user-info-text">
+            <span class="user-name">Abhishek Kumar <i class="arrow-down"></i></span>
+            <span class="user-tier">Silver Tier Member</span>
+        </div>
+        </button>
+
+        <div class="profile-menu">
+            <div class="menu-header">
+                <div class="large-avatar">A</div>
+                <div class="detail-text">
+                    <h4>Abhishek Kumar</h4>
+                    <p>abhishek.k@email.com</p>
+                    <span class="id-badge">ID: SF-99201</span>
+                </div>
+            </div>
+            
+            <div class="menu-body">
+                <div class="personal-info-item">
+                    <span>Phone:</span>
+                    <strong>+91 98765 43210</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Nationality:</span>
+                    <strong>Indian</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Passport:</span>
+                    <strong>Z1234567</strong>
+                </div>
+            </div>
+
+            <div class="menu-footer">
+                <a href="{% url 'profile' %}" class="btn-edit">
+                    <span class="icon">⚙️</span> Edit Profile
+                </a>
+                <a href="/logout" class="btn-logout">Logout</a>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block more_option %}
+    <div class="lang-dropdown">
+        <button class="lang-trigger">
+            <span class="globe-icon">🌐</span>
+            <span class="current-lang">EN</span>
+            <span class="arrow-down">▾</span>
+        </button>
+        <ul class="lang-menu">
+            <li><a href="?lang=en">English (EN)</a></li>
+            <li><a href="?lang=hi">हिन्दी (HI)</a></li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block Crew_Management %}
+    <div class="pilot-viewport">
+    <header class="pilot-header">
+        <div class="header-logic">
+            <span class="status-indicator">SECURE DATABASE // AUTH_LEVEL_04</span>
+            <h1>Pilot <span class="silver-text">Command Center</span></h1>
+        </div>
+        <br><br>
+        <div class="action-group">
+            <a class="btn-primary-silver" href="{% url 'AddPilot' %}">+ Register Aviator</a>
+        </div>
+    </header>
+
+    <!-- Pilot Analytics Ribbon -->
+    <section class="pilot-stats">
+        <div class="stat-card-glass">
+            <label>Total Pilots</label>
+            <strong>312</strong>
+        </div>
+        <div class="stat-card-glass">
+            <label>Active Duty</label>
+            <strong class="text-green">284</strong>
+        </div>
+        <div class="stat-card-glass">
+            <label>Medical Due</label>
+            <strong class="text-amber">14</strong>
+        </div>
+    </section>
+
+    <!-- CRUD Data Ledger -->
+    <div class="pilot-table-container glass-canvas">
+        <table class="pilot-ledger">
+            <thead>
+                <tr>
+                    <th>Pilot ID</th>
+                    <th>Name & Rank</th>
+                    <th>Type Ratings</th>
+                    <th>Total Hours</th>
+                    <th>Certification</th>
+                    <th class="text-right">Operations</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="ledger-row">
+                    <td><span class="id-badge">#PLT-774</span></td>
+                    <td>
+                        <div class="pilot-info">
+                            <strong>Capt. Arjun Mehra</strong>
+                            <small>Senior Commander</small>
+                        </div>
+                    </td>
+                    <td><span class="tag">A320</span> <span class="tag">B787</span></td>
+                    <td><strong>12,450 hrs</strong></td>
+                    <td><span class="status-pill status-valid">Valid</span></td>
+                    <td class="text-right">
+                        <button class="btn-op update" title="Update Profile">✎</button>
+                        <button class="btn-op read" title="View Records">👁</button>
+                        <button class="btn-op delete" title="Decommission">🗑</button>
+                    </td>
+                </tr>
+                <!-- More rows would be generated via Django template tags -->
+            </tbody>
+        </table>
+    </div>
+    </div>
+{% endblock %} 

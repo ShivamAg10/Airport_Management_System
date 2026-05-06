@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block nav_titles %}
+    <ul class="nav-links">
+        <li><a href="{% url 'Booking_Flights' %}">Booking Flights</a></li>
+        <li><a href="{% url 'Search_Results' %}">Search Result</a></li>
+        <li><a href="{% url 'Flight_Status' %}">Flight Status</a></li>
+    </ul>
+{% endblock %}
+
+{% block more_option %}
+    <div class="lang-dropdown">
+        <button class="lang-trigger">
+            <span class="current-lang">Manage Trips</span>
+            <span class="arrow-down">▾</span>
+        </button>
+        <ul class="lang-menu">
+            <li><a href="{% url 'Check_In' %}">✅ Web Check-In</a></li>
+            <li><a href="{% url 'Booking_History' %}">🕒 Booking History</a></li>
+            <li><a href="{% url 'Cancellations' %}">❌ Cancellations</a></li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block login_option %}
+    <div class="nav-right">
+    <div class="profile-dropdown">
+        <button class="profile-trigger">
+            <div class="avatar-wrapper">
+            <div class="user-avatar">A</div>
+            <span class="status-indicator"></span> </div>
+        <div class="user-info-text">
+            <span class="user-name">Abhishek Kumar <i class="arrow-down"></i></span>
+            <span class="user-tier">Silver Tier Member</span>
+        </div>
+        </button>
+
+        <div class="profile-menu">
+            <div class="menu-header">
+                <div class="large-avatar">A</div>
+                <div class="detail-text">
+                    <h4>Abhishek Kumar</h4>
+                    <p>abhishek.k@email.com</p>
+                    <span class="id-badge">ID: SF-99201</span>
+                </div>
+            </div>
+            
+            <div class="menu-body">
+                <div class="personal-info-item">
+                    <span>Phone:</span>
+                    <strong>+91 98765 43210</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Nationality:</span>
+                    <strong>Indian</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Passport:</span>
+                    <strong>Z1234567</strong>
+                </div>
+            </div>
+
+            <div class="menu-footer">
+                <a href="{% url 'profile' %}" class="btn-edit">
+                    <span class="icon">⚙️</span> Edit Profile
+                </a>
+                <a href="/logout" class="btn-logout">Logout</a>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block Cancellations %}
+    <div class="cancel-container">
+    <div class="cancel-header">
+        <h2>Cancel Your Booking</h2>
+        <p>Review your refund details before confirming the cancellation.</p>
+    </div>
+
+    <div class="cancel-target-card">
+        <div class="booking-summary">
+            <span class="pnr-badge">PNR: SF99201</span>
+            <h3>Delhi (DEL) ➔ Mumbai (BOM)</h3>
+            <p>Flight SF-202 | 26 April 2026</p>
+        </div>
+        
+        <div class="refund-breakdown">
+            <h4>Refund Summary</h4>
+            <div class="breakdown-row">
+                <span>Original Fare</span>
+                <span>₹5,500</span>
+            </div>
+            <div class="breakdown-row">
+                <span>Cancellation Fee</span>
+                <span class="deduction">- ₹1,500</span>
+            </div>
+            <div class="breakdown-row">
+                <span>Convenience Fee (Non-refundable)</span>
+                <span class="deduction">- ₹300</span>
+            </div>
+            <hr>
+            <div class="breakdown-row total">
+                <span>Estimated Refund</span>
+                <span class="refund-amount">₹3,700</span>
+            </div>
+        </div>
+
+        <div class="confirmation-area">
+            <div class="reason-select">
+                <label>Reason for cancellation (Optional)</label>
+                <select>
+                    <option>Plan Changed</option>
+                    <option>Health Issues</option>
+                    <option>Flight Delay/Reschedule</option>
+                    <option>Other</option>
+                </select>
+            </div>
+
+            <div class="warning-box">
+                <span class="warning-icon">⚠️</span>
+                <p>Once confirmed, this action cannot be undone. Your seat will be released immediately.</p>
+            </div>
+
+            <div class="cancel-actions">
+                <a href="/history/" class="btn-back">Go Back</a>
+                <button class="btn-confirm-cancel">Confirm Cancellation</button>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}

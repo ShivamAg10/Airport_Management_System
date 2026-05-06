@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block nav_titles %}
+    <ul class="nav-links">
+        <li><a href="#" class="active">Search Flights</a></li>
+        <li><a href="#">Destinations</a></li>
+        <li><a href="#">Special Offers</a></li>
+        <li><a href="#">About Us</a></li>
+    </ul>
+{% endblock %}
+
+
+{% block more_option %}
+    <div class="lang-dropdown">
+        <button class="lang-trigger">
+            <span class="globe-icon">🌐</span>
+            <span class="current-lang">EN</span>
+            <span class="arrow-down">▾</span>
+        </button>
+        <ul class="lang-menu">
+            <li><a href="?lang=en">English (EN)</a></li>
+            <li><a href="?lang=hi">हिन्दी (HI)</a></li>
+        </ul>
+    </div>
+{% endblock %}
+
+
+{% block login_option %}
+    <div class="auth-group">
+        <a href="{% url 'login' %}" class="btn-login">Login</a>
+        <a href="{% url 'register' %}" class="btn-register">Register</a>
+    </div>
+{% endblock %}
+
+{% block Register %}
+    <div class="register-wrapper">
+    <div class="register-container">
+        <div class="register-header">
+            <span class="logo-sm">SF</span>
+            <h2>Create Your Account</h2>
+            <p>Join SkyFlow Airlines for a seamless travel experience.</p>
+        </div>
+
+        <form method="POST" action="{% url 'register' %}" class="register-form">
+            {% csrf_token %}
+            
+            <div class="form-grid">
+                <div class="input-group">
+                    <label for="full_name">Full Name (as per Passport)</label>
+                    <input type="text" id="full_name" name="name" placeholder="John Doe" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="phone">Phone Number</label>
+                    <div class="phone-input">
+                        <span class="country-code">+91</span>
+                        <input type="tel" id="phone" name="phone" placeholder="9876543210" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="aadhar">Aadhar Number</label>
+                    <input type="text" id="aadhar" name="aadhar" placeholder="12-digit UID" maxlength="12">
+                </div>
+
+                <div class="input-group">
+                    <label for="nationality">Nationality</label>
+                    <select id="nationality" name="nationality">
+                        <option value="Indian">Indian</option>
+                        <option value="American">American</option>
+                        <option value="British">British</option>
+                        </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="passport">Passport Number</label>
+                    <input type="text" id="passport" name="passport" placeholder="Enter Passport ID" required>
+                </div>
+            </div>
+
+            <div class="form-footer">
+                <label class="terms">
+                    <input type="checkbox" required> 
+                    <span>I agree to the <a href="#">Terms & Conditions</a></span>
+                </label>
+                <button type="submit" class="btn-reg-ister">Create Account</button>
+                <p class="login-link">Already a member? <a href="{% url 'login' %}">Login here</a></p>
+            </div>
+        </form>
+    </div>
+    </div>
+{% endblock %} 

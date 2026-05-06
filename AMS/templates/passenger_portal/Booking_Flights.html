@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block nav_titles %}
+    <ul class="nav-links">
+        <li><a href="{% url 'Booking_Flights' %}" class="active">Booking Flights</a></li>
+        <li><a href="{% url 'Search_Results' %}">Search Result</a></li>
+        <li><a href="{% url 'Flight_Status' %}">Flight Status</a></li>
+    </ul>
+{% endblock %}
+
+{% block more_option %}
+    <div class="lang-dropdown">
+        <button class="lang-trigger">
+            <span class="current-lang">Manage Trips</span>
+            <span class="arrow-down">▾</span>
+        </button>
+        <ul class="lang-menu">
+            <li><a href="{% url 'Check_In' %}">✅ Web Check-In</a></li>
+            <li><a href="{% url 'Booking_History' %}">🕒 Booking History</a></li>
+            <li><a href="{% url 'Cancellations' %}">❌ Cancellations</a></li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block login_option %}
+    <div class="nav-right">
+    <div class="profile-dropdown">
+        <button class="profile-trigger">
+            <div class="avatar-wrapper">
+            <div class="user-avatar">A</div>
+            <span class="status-indicator"></span> </div>
+        <div class="user-info-text">
+            <span class="user-name">Abhishek Kumar <i class="arrow-down"></i></span>
+            <span class="user-tier">Silver Tier Member</span>
+        </div>
+        </button>
+
+        <div class="profile-menu">
+            <div class="menu-header">
+                <div class="large-avatar">A</div>
+                <div class="detail-text">
+                    <h4>Abhishek Kumar</h4>
+                    <p>abhishek.k@email.com</p>
+                    <span class="id-badge">ID: SF-99201</span>
+                </div>
+            </div>
+            
+            <div class="menu-body">
+                <div class="personal-info-item">
+                    <span>Phone:</span>
+                    <strong>+91 98765 43210</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Nationality:</span>
+                    <strong>Indian</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Passport:</span>
+                    <strong>Z1234567</strong>
+                </div>
+            </div>
+
+            <div class="menu-footer">
+                <a href="{% url 'profile' %}" class="btn-edit">
+                    <span class="icon">⚙️</span> Edit Profile
+                </a>
+                <a href="/logout" class="btn-logout">Logout</a>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block Booking_Flights %}
+    <section class="booking-search-container">
+    <div class="booking-card">
+        <div class="booking-header">
+            <h2>Find Your Next Adventure</h2>
+            <p>Compare and book flights to over 50+ destinations worldwide</p>
+        </div>
+
+        <div class="trip-type-toggle">
+            <input type="radio" id="one-way" name="trip-type" checked>
+            <label for="one-way">One Way</label>
+            
+            <input type="radio" id="round-trip" name="trip-type">
+            <label for="round-trip">Round Trip</label>
+            
+            <input type="radio" id="multi-city" name="trip-type">
+            <label for="multi-city">Multi-City</label>
+        </div>
+
+        <form class="search-grid">
+            <div class="input-row">
+                <div class="input-box">
+                    <label>From</label>
+                    <div class="field-wrapper">
+                        <span class="field-icon">🛫</span>
+                        <input type="text" placeholder="Departure City (e.g. Delhi)" required>
+                    </div>
+                </div>
+
+                <div class="swap-icon">⇌</div>
+
+                <div class="input-box">
+                    <label>To</label>
+                    <div class="field-wrapper">
+                        <span class="field-icon">🛬</span>
+                        <input type="text" placeholder="Arrival City (e.g. Mumbai)" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-row">
+                <div class="input-box">
+                    <label>Departure Date</label>
+                    <div class="field-wrapper">
+                        <input type="date" required>
+                    </div>
+                </div>
+
+                <div class="input-box" id="return-date-box">
+                    <label>Return Date</label>
+                    <div class="field-wrapper">
+                        <input type="date">
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <label>Travelers</label>
+                    <div class="field-wrapper">
+                        <select>
+                            <option>1 Adult</option>
+                            <option>1 Adult</option>
+                            <option>2 Adults</option>
+                            <option>Family (3+)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <label>Class</label>
+                    <div class="field-wrapper">
+                        <select>
+                            <option>Economy</option>
+                            <option>Buisness</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="search-button-wrapper">
+                <button type="submit" class="btn-search-flights">
+                    Show Available Flights ➔
+                </button>
+            </div>
+        </form>
+    </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block nav_titles %}
+    <ul class="nav-links">
+        <li><a href="{% url 'Booking_Flights' %}">Booking Flights</a></li>
+        <li><a href="{% url 'Search_Results' %}">Search Result</a></li>
+        <li><a href="{% url 'Flight_Status' %}">Flight Status</a></li>
+    </ul>
+{% endblock %}
+
+{% block more_option %}
+    <div class="lang-dropdown">
+        <button class="lang-trigger">
+            <span class="current-lang">Manage Trips</span>
+            <span class="arrow-down">▾</span>
+        </button>
+        <ul class="lang-menu">
+            <li><a href="{% url 'Check_In' %}">✅ Web Check-In</a></li>
+            <li><a href="{% url 'Booking_History' %}">🕒 Booking History</a></li>
+            <li><a href="{% url 'Cancellations' %}">❌ Cancellations</a></li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block login_option %}
+    <div class="nav-right">
+    <div class="profile-dropdown">
+        <button class="profile-trigger">
+            <div class="avatar-wrapper">
+            <div class="user-avatar">A</div>
+            <span class="status-indicator"></span> </div>
+        <div class="user-info-text">
+            <span class="user-name">Abhishek Kumar <i class="arrow-down"></i></span>
+            <span class="user-tier">Silver Tier Member</span>
+        </div>
+        </button>
+
+        <div class="profile-menu">
+            <div class="menu-header">
+                <div class="large-avatar">A</div>
+                <div class="detail-text">
+                    <h4>Abhishek Kumar</h4>
+                    <p>abhishek.k@email.com</p>
+                    <span class="id-badge">ID: SF-99201</span>
+                </div>
+            </div>
+            
+            <div class="menu-body">
+                <div class="personal-info-item">
+                    <span>Phone:</span>
+                    <strong>+91 98765 43210</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Nationality:</span>
+                    <strong>Indian</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Passport:</span>
+                    <strong>Z1234567</strong>
+                </div>
+            </div>
+
+            <div class="menu-footer">
+                <a href="{% url 'profile' %}" class="btn-edit">
+                    <span class="icon">⚙️</span> Edit Profile
+                </a>
+                <a href="/logout" class="btn-logout">Logout</a>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block Check_In %}
+    <div class="checkin-container">
+    <div class="checkin-header">
+        <h2>Select Your Seat</h2>
+        <p>Flight SF-202 | Delhi ➔ Mumbai</p>
+    </div>
+
+    <div class="seat-selection-wrapper">
+        <div class="seat-legend">
+            <div class="legend-item"><span class="seat-demo available"></span> Available</div>
+            <div class="legend-item"><span class="seat-demo occupied"></span> Occupied</div>
+            <div class="legend-item"><span class="seat-demo selected"></span> Selected</div>
+        </div>
+
+        <div class="plane-cabin">
+            <div class="cockpit"><span>Flight Deck</span></div>
+            
+            <div class="seating-grid">
+                <div class="seat-row">
+                    <div class="row-num">1</div>
+                    <div class="seat window occupied">A</div>
+                    <div class="seat">B</div>
+                    <div class="seat">C</div>
+                    <div class="aisle"></div>
+                    <div class="seat">D</div>
+                    <div class="seat">E</div>
+                    <div class="seat window">F</div>
+                </div>
+
+                <div class="seat-row">
+                    <div class="row-num">2</div>
+                    <div class="seat window">A</div>
+                    <div class="seat selected">B</div>
+                    <div class="seat">C</div>
+                    <div class="aisle"></div>
+                    <div class="seat occupied">D</div>
+                    <div class="seat occupied">E</div>
+                    <div class="seat window">F</div>
+                </div>
+                <div class="seat-row">
+                    <div class="row-num">2</div>
+                    <div class="seat window">A</div>
+                    <div class="seat">B</div>
+                    <div class="seat">C</div>
+                    <div class="aisle"></div>
+                    <div class="seat occupied">D</div>
+                    <div class="seat occupied">E</div>
+                    <div class="seat window">F</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="selection-summary">
+            <div class="summary-info">
+                <span>Selected Seat:</span>
+                <strong id="chosen-seat">2C</strong>
+            </div>
+            <button class="btn-confirm-checkin"><a href="{% url 'Boarding_Pass' %}">Confirm & Generate Boarding Pass</a></button>
+        </div>
+    </div>
+    </div>
+{% endblock %}

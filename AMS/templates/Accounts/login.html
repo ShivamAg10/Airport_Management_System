@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block nav_titles %}
+    <ul class="nav-links">
+        <li><a href="#" class="active">Search Flights</a></li>
+        <li><a href="#">Destinations</a></li>
+        <li><a href="#">Special Offers</a></li>
+        <li><a href="#">About Us</a></li>
+    </ul>
+{% endblock %}
+
+
+{% block more_option %}
+    <div class="lang-dropdown">
+        <button class="lang-trigger">
+            <span class="globe-icon">🌐</span>
+            <span class="current-lang">EN</span>
+            <span class="arrow-down">▾</span>
+        </button>
+        <ul class="lang-menu">
+            <li><a href="?lang=en">English (EN)</a></li>
+            <li><a href="?lang=hi">हिन्दी (HI)</a></li>
+        </ul>
+    </div>
+{% endblock %}
+
+
+{% block login_option %}
+    <div class="auth-group">
+        <a href="{% url 'login' %}" class="btn-login">Login</a>
+        <a href="{% url 'register' %}" class="btn-register">Register</a>
+    </div>
+{% endblock %}
+
+{% block Login %}
+    <div class="login-wrapper">
+    <div class="login-visual">
+        <div class="visual-content">
+            <span class="logo-large">SF</span>
+            <h1>Welcome Back to SkyFlow</h1>
+            <p>Your journey continues here. Log in to manage your bookings and explore new destinations.</p>
+        </div>
+    </div>
+
+    <div class="login-section">
+        <div class="login-box">
+            <h2>Login</h2>
+            <p class="subtitle">Please enter your account details.</p>
+
+            <form method="POST" action="{% url 'login' %}">
+                {% csrf_token %}
+                <div class="input-group">
+                    <label for="username">Email or Username</label>
+                    <input type="text" id="username" name="username" placeholder="name@example.com" required>
+                </div>
+
+                <div class="input-group">
+                    <div class="label-row">
+                        <label for="password">Password</label>
+                        <a href="#" class="forgot-link">Forgot?</a>
+                    </div>
+                    <input type="password" id="password" name="password" placeholder="••••••••" required>
+                </div>
+
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox"> <span>Remember me</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-log-in">Log In</button>
+
+                <div class="register-prompt">
+                    Don't have an account? <a href="{% url 'register' %}">Create one now</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+{% endblock %} 

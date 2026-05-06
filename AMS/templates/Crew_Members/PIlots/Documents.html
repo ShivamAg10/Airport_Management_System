@@ -1,0 +1,183 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block nav_titles %}
+    <ul class="nav-links">
+        <li><a href="{% url 'pilot' %}">Home</a></li>
+        <li><a href="{% url 'Pilot_Roster' %}">Roster</a></li>
+        <li><a href="{% url 'Logbook' %}">LogBook</a></li>
+        <li><a href="{% url 'Documents' %}" class="active">Documents</a></li>
+        <li><a href="{% url 'Simulations' %}">Simulations</a></li>
+        <li><a href="{% url 'Pilot_TakeLeave' %}">TakeLeave</a></li>
+        <li><a href="{% url 'Pilot_Safety' %}">Safety</a></li>
+    </ul>
+{% endblock %}
+
+{% block login_option %}
+    <div class="nav-right">
+    <div class="profile-dropdown">
+        <button class="profile-trigger">
+            <div class="avatar-wrapper">
+            <div class="user-avatar">A</div>
+            <span class="status-indicator"></span> </div>
+        <div class="user-info-text">
+            <span class="user-name">Abhishek Kumar <i class="arrow-down"></i></span>
+            <span class="user-tier">Silver Tier Member</span>
+        </div>
+        </button>
+
+        <div class="profile-menu">
+            <div class="menu-header">
+                <div class="large-avatar">A</div>
+                <div class="detail-text">
+                    <h4>Abhishek Kumar</h4>
+                    <p>abhishek.k@email.com</p>
+                    <span class="id-badge">ID: SF-99201</span>
+                </div>
+            </div>
+            
+            <div class="menu-body">
+                <div class="personal-info-item">
+                    <span>Phone:</span>
+                    <strong>+91 98765 43210</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Nationality:</span>
+                    <strong>Indian</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Passport:</span>
+                    <strong>Z1234567</strong>
+                </div>
+            </div>
+
+            <div class="menu-footer">
+                <a href="{% url 'profile' %}" class="btn-edit">
+                    <span class="icon">⚙️</span> Edit Profile
+                </a>
+                <a href="/logout" class="btn-logout">Logout</a>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block more_option %}
+    <div class="lang-dropdown">
+        <button class="lang-trigger">
+            <span class="globe-icon">🌐</span>
+            <span class="current-lang">EN</span>
+            <span class="arrow-down">▾</span>
+        </button>
+        <ul class="lang-menu">
+            <li><a href="?lang=en">English (EN)</a></li>
+            <li><a href="?lang=hi">हिन्दी (HI)</a></li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block Pilots %}
+    <div class="docs-container">
+    <header class="docs-header">
+        <div class="title-area">
+            <h1>Compliance & Documents</h1>
+            <p>Ensure all certifications are current to maintain 'Fit to Fly' status.</p>
+        </div>
+        <button class="btn-upload">+ Upload New Document</button>
+    </header>
+
+    <!-- Essential License Cards -->
+    <section class="docs-grid">
+        <!-- License Card 1 -->
+        <div class="doc-card status-valid">
+            <div class="card-top">
+                <div class="doc-icon">🪪</div>
+                <span class="status-tag">Valid</span>
+            </div>
+            <h3>Commercial Pilot License (CPL)</h3>
+            <div class="doc-info">
+                <p>Number: <strong>IN-9928374-X</strong></p>
+                <p>Issued: <strong>12 Jan 2022</strong></p>
+            </div>
+            <div class="doc-expiry">
+                <span>Expires in: <strong>2.4 Years</strong></span>
+            </div>
+            <div class="doc-footer">
+                <button class="btn-text">View PDF</button>
+                <button class="btn-text">Update</button>
+            </div>
+        </div>
+
+        <!-- License Card 2 (Warning State) -->
+        <div class="doc-card status-warning">
+            <div class="card-top">
+                <div class="doc-icon">🩺</div>
+                <span class="status-tag">Expiring Soon</span>
+            </div>
+            <h3>Class 1 Medical Certificate</h3>
+            <div class="doc-info">
+                <p>Examiner: <strong>Dr. S. Kapoor</strong></p>
+                <p>Last Exam: <strong>15 Nov 2025</strong></p>
+            </div>
+            <div class="doc-expiry">
+                <span>Expires in: <strong>12 Days</strong></span>
+            </div>
+            <div class="doc-footer">
+                <button class="btn-action">Schedule Renewal</button>
+            </div>
+        </div>
+
+        <!-- License Card 3 -->
+        <div class="doc-card status-valid">
+            <div class="card-top">
+                <div class="doc-icon">🛂</div>
+                <span class="status-tag">Valid</span>
+            </div>
+            <h3>Passport & Visas</h3>
+            <div class="doc-info">
+                <p>Passport: <strong>Z-1100229</strong></p>
+                <p>US C1/D Visa: <strong>Active</strong></p>
+            </div>
+            <div class="doc-expiry">
+                <span>Expires in: <strong>4.1 Years</strong></span>
+            </div>
+            <div class="doc-footer">
+                <button class="btn-text">View Details</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Secondary Documents Table -->
+    <section class="secondary-docs">
+        <h3>Other Certifications</h3>
+        <table class="docs-table">
+            <thead>
+                <tr>
+                    <th>Document Name</th>
+                    <th>ID / Ref</th>
+                    <th>Valid From</th>
+                    <th>Expiry</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>FRTOL (Radio License)</td>
+                    <td>RL-8829</td>
+                    <td>Jan 2020</td>
+                    <td>Lifetime</td>
+                    <td><button class="btn-sm">View</button></td>
+                </tr>
+                <tr>
+                    <td>Dangerous Goods (Cat 10)</td>
+                    <td>DG-552</td>
+                    <td>May 2025</td>
+                    <td>May 2027</td>
+                    <td><button class="btn-sm">View</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    </div>
+{% endblock %} 

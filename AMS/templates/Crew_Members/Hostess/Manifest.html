@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block nav_titles %}
+    <ul class="nav-links">
+        <li><a href="{% url 'Hostess' %}">Home</a></li>
+        <li><a href="{% url 'Roster' %}">Roster</a></li>
+        <li><a href="{% url 'Manifest' %}" class="active">Manifest</a></li>        
+        <li><a href="{% url 'Training' %}">Training</a></li> 
+        <li><a href="{% url 'TakeLeave' %}">TakeLeave</a></li>
+        <li><a href="{% url 'Safety' %}">Safety</a></li>
+    </ul>
+{% endblock %}
+
+{% block login_option %}
+    <div class="nav-right">
+    <div class="profile-dropdown">
+        <button class="profile-trigger">
+            <div class="avatar-wrapper">
+            <div class="user-avatar">A</div>
+            <span class="status-indicator"></span> </div>
+        <div class="user-info-text">
+            <span class="user-name">Abhishek Kumar <i class="arrow-down"></i></span>
+            <span class="user-tier">Silver Tier Member</span>
+        </div>
+        </button>
+
+        <div class="profile-menu">
+            <div class="menu-header">
+                <div class="large-avatar">A</div>
+                <div class="detail-text">
+                    <h4>Abhishek Kumar</h4>
+                    <p>abhishek.k@email.com</p>
+                    <span class="id-badge">ID: SF-99201</span>
+                </div>
+            </div>
+            
+            <div class="menu-body">
+                <div class="personal-info-item">
+                    <span>Phone:</span>
+                    <strong>+91 98765 43210</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Nationality:</span>
+                    <strong>Indian</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Passport:</span>
+                    <strong>Z1234567</strong>
+                </div>
+            </div>
+
+            <div class="menu-footer">
+                <a href="{% url 'profile' %}" class="btn-edit">
+                    <span class="icon">⚙️</span> Edit Profile
+                </a>
+                <a href="/logout" class="btn-logout">Logout</a>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block more_option %}
+    <div class="lang-dropdown">
+        <button class="lang-trigger">
+            <span class="globe-icon">🌐</span>
+            <span class="current-lang">EN</span>
+            <span class="arrow-down">▾</span>
+        </button>
+        <ul class="lang-menu">
+            <li><a href="?lang=en">English (EN)</a></li>
+            <li><a href="?lang=hi">हिन्दी (HI)</a></li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block Hostess %}
+    <div class="manifest-container">
+    <header class="manifest-header">
+        <div class="flight-brief">
+            <h1>Passenger Manifest</h1>
+            <p>Flight **SF-202** | DEL ➔ BOM | **174 Pax**</p>
+        </div>
+        <div class="manifest-filters">
+            <button class="filter-pill active">All</button>
+            <button class="filter-pill">VIP</button>
+            <button class="filter-pill">Special Meals</button>
+            <button class="filter-pill">Infants</button>
+        </div>
+    </header>
+
+    <div class="manifest-layout">
+        <!-- Section 1: Visual Seat Map -->
+        <aside class="cabin-map">
+            <div class="cabin-section">
+                <span class="aisle-label">A</span>
+                <span class="aisle-label">B</span>
+                <span class="aisle-label">C</span>
+                <div class="spacer"></div>
+                <span class="aisle-label">D</span>
+                <span class="aisle-label">E</span>
+                <span class="aisle-label">F</span>
+            </div>
+            
+            <div class="seat-grid">
+                <!-- Row 1 -->
+                <div class="seat vip occupied" data-seat="1A"></div>
+                <div class="seat occupied" data-seat="1B"></div>
+                <div class="seat ssr occupied" data-seat="1C"></div>
+                <div class="aisle">1</div>
+                <div class="seat occupied" data-seat="1D"></div>
+                <div class="seat empty" data-seat="1E"></div>
+                <div class="seat occupied" data-seat="1F"></div>
+
+                <!-- Row 2 -->
+                <div class="seat occupied" data-seat="2A"></div>
+                <div class="seat occupied" data-seat="2B"></div>
+                <div class="seat occupied" data-seat="2C"></div>
+                <div class="aisle">2</div>
+                <div class="seat vip occupied" data-seat="2D"></div>
+                <div class="seat occupied" data-seat="2E"></div>
+                <div class="seat occupied" data-seat="2F"></div>
+            </div>
+        </aside>
+
+        <!-- Section 2: Selected Passenger Detail -->
+        <main class="pax-details">
+            <div class="glass-card detail-view">
+                <div class="pax-header">
+                    <div class="pax-avatar">JD</div>
+                    <div class="pax-main-info">
+                        <h2>Mr. John Doe</h2>
+                        <span class="seat-tag">Seat 1A</span>
+                    </div>
+                    <span class="tier-badge gold">GOLD MEMBER</span>
+                </div>
+
+                <div class="pax-stats">
+                    <div class="stat">
+                        <small>Preference</small>
+                        <strong>Window</strong>
+                    </div>
+                    <div class="stat">
+                        <small>Meal</small>
+                        <strong>VGML (Vegan)</strong>
+                    </div>
+                    <div class="stat">
+                        <small>Language</small>
+                        <strong>English, Hindi</strong>
+                    </div>
+                </div>
+
+                <div class="service-notes">
+                    <h3>Crew Notes</h3>
+                    <p>Celebrating birthday today. Offer complimentary champagne after first service.</p>
+                </div>
+
+                <div class="action-footer">
+                    <button class="btn-action">Issue Log</button>
+                    <button class="btn-action primary">Mark Served</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    </div>
+{% endblock %} 

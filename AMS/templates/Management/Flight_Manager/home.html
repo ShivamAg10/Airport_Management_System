@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block nav_titles %}
+    <ul class="nav-links">
+        <li><a href="{% url 'Flight_Manager' %}" class="active">Home</a></li>
+        <li><a href="{% url 'FlightInfo' %}">FlightInfo</a></li>
+        <li><a href="{% url 'PlaneInfo' %}">PlaneInfo</a></li>
+        <li><a href="{% url 'AircraftMaintenance' %}">AircraftMaintenance</a></li>
+    </ul>
+{% endblock %}
+
+{% block login_option %}
+    <div class="nav-right">
+    <div class="profile-dropdown">
+        <button class="profile-trigger">
+            <div class="avatar-wrapper">
+            <div class="user-avatar">A</div>
+            <span class="status-indicator"></span> </div>
+        <div class="user-info-text">
+            <span class="user-name">Abhishek Kumar <i class="arrow-down"></i></span>
+            <span class="user-tier">Silver Tier Member</span>
+        </div>
+        </button>
+
+        <div class="profile-menu">
+            <div class="menu-header">
+                <div class="large-avatar">A</div>
+                <div class="detail-text">
+                    <h4>Abhishek Kumar</h4>
+                    <p>abhishek.k@email.com</p>
+                    <span class="id-badge">ID: SF-99201</span>
+                </div>
+            </div>
+            
+            <div class="menu-body">
+                <div class="personal-info-item">
+                    <span>Phone:</span>
+                    <strong>+91 98765 43210</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Nationality:</span>
+                    <strong>Indian</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Passport:</span>
+                    <strong>Z1234567</strong>
+                </div>
+            </div>
+
+            <div class="menu-footer">
+                <a href="{% url 'profile' %}" class="btn-edit">
+                    <span class="icon">⚙️</span> Edit Profile
+                </a>
+                <a href="/logout" class="btn-logout">Logout</a>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block more_option %}
+    <div class="lang-dropdown">
+        <button class="lang-trigger">
+            <span class="globe-icon">🌐</span>
+            <span class="current-lang">EN</span>
+            <span class="arrow-down">▾</span>
+        </button>
+        <ul class="lang-menu">
+            <li><a href="?lang=en">English (EN)</a></li>
+            <li><a href="?lang=hi">हिन्दी (HI)</a></li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block Flight_Management %}
+    <div class="fm-home-viewport">
+    <!-- Top HUD: Global Operations Ribbon -->
+    <section class="hud-ribbon">
+        <div class="hud-glass-card">
+            <span class="label">Total Fleet</span>
+            <div class="value neon-cyan">42 <small>Tail Signs</small></div>
+            <p class="sub-text">18 International | 24 Domestic</p>
+        </div>
+        <div class="hud-glass-card">
+            <span class="label">Airborne Now</span>
+            <div class="value neon-green">28 <small>Flights</small></div>
+            <div class="mini-progress-bar"><div class="fill" style="width: 66%"></div></div>
+        </div>
+        <div class="hud-glass-card">
+            <span class="label">Avg. Network OTP</span>
+            <div class="value neon-gold">92.4%</div>
+            <p class="sub-text">On-Time Performance (Today)</p>
+        </div>
+        <div class="hud-glass-card">
+            <span class="label">Critical Delays</span>
+            <div class="value neon-red">03</div>
+            <p class="sub-text">Awaiting Manager Intervention</p>
+        </div>
+    </section>
+
+    <!-- Main Content: Map & Quick Actions -->
+    <div class="fm-grid-main">
+        <!-- Interactive Operational Map -->
+        <div class="map-container-glass">
+            <div class="map-header">
+                <h3>Live Network Oversight</h3>
+                <div class="map-controls">
+                    <span class="status-indicator">● LIVE FEED</span>
+                </div>
+            </div>
+            <!-- Map Placeholder -->
+            <div id="ops-map-view">
+                <div class="map-blur-overlay"></div>
+            </div>
+        </div>
+
+        <!-- Quick Manager Actions -->
+        <aside class="action-sidebar">
+            <div class="glass-card-simple">
+                <h3>Tactical Shortcuts</h3>
+                <div class="shortcut-grid">
+                    <a href="{% url 'ScheduleAircraft' %}" class="shortcut-item">
+                        <span class="icon">✈️</span>
+                        <span>Manage Flights</span>
+                    </a>
+                    <a href="/route-mgmt/" class="shortcut-item">
+                        <span class="icon">🗺️</span>
+                        <span>Update Routes</span>
+                    </a>
+                    <button class="shortcut-item">
+                        <span class="icon">📢</span>
+                        <span>Broadcast Alert</span>
+                    </button>
+                    <button class="shortcut-item">
+                        <span class="icon">📝</span>
+                        <span>Daily Log</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Urgent Operations Alert -->
+            {% comment %} <div class="alert-box critical">
+                <div class="alert-header">
+                    <span class="pulse-dot"></span>
+                    <strong>Urgent Action Required</strong>
+                </div>
+                <p>Flight <strong>SF-401</strong> is delayed by 45m due to ATC congestion. Impacting 3 connections.</p>
+                <button class="btn-resolve">Open Delay Monitor</button>
+            </div> {% endcomment %}
+        </aside>
+    </div>
+    </div>
+{% endblock %} 

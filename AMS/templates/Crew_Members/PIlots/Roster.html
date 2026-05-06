@@ -1,0 +1,174 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block nav_titles %}
+    <ul class="nav-links">
+        <li><a href="{% url 'pilot' %}">Home</a></li>
+        <li><a href="{% url 'Pilot_Roster' %}" class="active">Roster</a></li>
+        <li><a href="{% url 'Logbook' %}">LogBook</a></li>
+        <li><a href="{% url 'Documents' %}">Documents</a></li>
+        <li><a href="{% url 'Simulations' %}">Simulations</a></li>
+        <li><a href="{% url 'Pilot_TakeLeave' %}">TakeLeave</a></li>
+        <li><a href="{% url 'Pilot_Safety' %}">Safety</a></li>
+    </ul>
+{% endblock %}
+
+{% block login_option %}
+    <div class="nav-right">
+    <div class="profile-dropdown">
+        <button class="profile-trigger">
+            <div class="avatar-wrapper">
+            <div class="user-avatar">A</div>
+            <span class="status-indicator"></span> </div>
+        <div class="user-info-text">
+            <span class="user-name">Abhishek Kumar <i class="arrow-down"></i></span>
+            <span class="user-tier">Silver Tier Member</span>
+        </div>
+        </button>
+
+        <div class="profile-menu">
+            <div class="menu-header">
+                <div class="large-avatar">A</div>
+                <div class="detail-text">
+                    <h4>Abhishek Kumar</h4>
+                    <p>abhishek.k@email.com</p>
+                    <span class="id-badge">ID: SF-99201</span>
+                </div>
+            </div>
+            
+            <div class="menu-body">
+                <div class="personal-info-item">
+                    <span>Phone:</span>
+                    <strong>+91 98765 43210</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Nationality:</span>
+                    <strong>Indian</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Passport:</span>
+                    <strong>Z1234567</strong>
+                </div>
+            </div>
+
+            <div class="menu-footer">
+                <a href="{% url 'profile' %}" class="btn-edit">
+                    <span class="icon">⚙️</span> Edit Profile
+                </a>
+                <a href="/logout" class="btn-logout">Logout</a>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block more_option %}
+    <div class="lang-dropdown">
+        <button class="lang-trigger">
+            <span class="globe-icon">🌐</span>
+            <span class="current-lang">EN</span>
+            <span class="arrow-down">▾</span>
+        </button>
+        <ul class="lang-menu">
+            <li><a href="?lang=en">English (EN)</a></li>
+            <li><a href="?lang=hi">हिन्दी (HI)</a></li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block Pilots %}
+    <div class="roster-container">
+    <!-- Header Section -->
+    <header class="roster-header">
+        <div class="month-selector">
+            <button class="btn-nav">◀</button>
+            <h1>May 2026</h1>
+            <button class="btn-nav">▶</button>
+        </div>
+        <div class="roster-meta">
+            <span>Total Duty: <strong>182h</strong></span>
+            <span>Flight Time: <strong>84h</strong></span>
+            <button class="btn-print">📄 Export PDF</button>
+        </div>
+    </header>
+
+    <div class="roster-layout">
+        <!-- Section 1: The Calendar Grid -->
+        <aside class="calendar-grid">
+            <div class="day-names">
+                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+            </div>
+            <div class="days">
+                <!-- Example of different day states -->
+                <div class="day-cell muted">27</div>
+                <div class="day-cell muted">28</div>
+                <div class="day-cell muted">29</div>
+                <div class="day-cell muted">30</div>
+                <div class="day-cell duty-day active">
+                    <span class="num">1</span>
+                    <span class="dot blue"></span>
+                </div>
+                <div class="day-cell off-day">
+                    <span class="num">2</span>
+                    <span class="label">OFF</span>
+                </div>
+                <div class="day-cell duty-day">
+                    <span class="num">3</span>
+                    <span class="dot blue"></span>
+                </div>
+                <!-- ... more days ... -->
+                <div class="day-cell standby-day">
+                    <span class="num">15</span>
+                    <span class="label">SBY</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Section 2: Daily Agenda (Details for the clicked day) -->
+        <main class="day-details">
+            <div class="details-header">
+                <h3>Friday, May 1st</h3>
+                <span class="duty-type">Flight Duty</span>
+            </div>
+
+            <div class="agenda-items">
+                <!-- Flight 1 -->
+                <div class="agenda-card">
+                    <div class="time-column">
+                        <span class="t-start">08:30</span>
+                        <span class="t-dur">2h 20m</span>
+                        <span class="t-end">10:50</span>
+                    </div>
+                    <div class="info-column">
+                        <h4>DEL ➔ BOM</h4>
+                        <p>Flight <strong>SF-202</strong> | Tail <strong>VT-SFJ</strong></p>
+                        <div class="crew-preview">w/ Capt. Rajesh Iyer</div>
+                    </div>
+                </div>
+
+                <!-- Ground Time -->
+                <div class="agenda-card ground">
+                    <div class="time-column">10:50</div>
+                    <div class="info-column">
+                        <p>Turnaround / Transit (BOM)</p>
+                    </div>
+                </div>
+
+                <!-- Flight 2 -->
+                <div class="agenda-card">
+                    <div class="time-column">
+                        <span class="t-start">12:15</span>
+                        <span class="t-dur">2h 10m</span>
+                        <span class="t-end">14:25</span>
+                    </div>
+                    <div class="info-column">
+                        <h4>BOM ➔ DEL</h4>
+                        <p>Flight <strong>SF-203</strong> | Tail <strong>VT-SFJ</strong></p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    </div>
+{% endblock %} 

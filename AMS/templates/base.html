@@ -1,0 +1,135 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyFlow</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/passenger.css' %}">
+    <link rel="stylesheet" href="{% static 'css/passenger1.css' %}">
+    <link rel="stylesheet" href="{% static 'css/accounts/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/accounts/register.css' %}">
+    <link rel="stylesheet" href="{% static 'css/accounts/profile.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Crew_Members/Pilot.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Crew_Members/Hostess.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Management/Flight_Manager.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Management/Flight_Manager_more.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Management/Crew_Manager.css' %}">
+</head>
+<body>
+<nav class="sky-navbar">
+    <div class="nav-container">
+        <a href="/" class="nav-logo">
+            <img src="{% static 'Images/logo.png' %}" alt="">
+        </a>    
+
+        
+        {% block nav_titles %}{% endblock  %}
+            
+
+        <div class="nav-actions">
+            
+            {% block more_option %}{% endblock %}
+                
+            {% block login_option %}{% endblock %}
+        </div>
+    </div>
+</nav>
+
+{% comment %} Public_Access {% endcomment %}
+{% block hero %}{% endblock %} <hr>
+{% block Destinations %}{% endblock %} <hr>
+{% block Marketings %}{% endblock %} <hr>
+{% block About %}{% endblock %} <hr>
+{% block Help %}{% endblock %} <hr>
+
+{% comment %} Passenger_Portal {% endcomment %}
+{% block Booking_Flights %}{% endblock %} <hr>
+{% block Search_Results %}{% endblock %} <hr>
+{% block Flight_Status %}{% endblock %} <hr>
+{% block Check_In %}{% endblock %} <hr>
+{% block Booking_History %}{% endblock %} <hr>
+{% block Cancellations %}{% endblock %} <hr>
+{% block Boarding_Pass %}{% endblock %} <hr>
+
+{% comment %} Account_Section {% endcomment %}
+{% block Login %}{% endblock %} <hr>
+{% block Register %}{% endblock %} <hr>
+{% block Profile %}{% endblock %} <hr>
+
+{% comment %} Crew_Members {% endcomment %}
+{% block Pilots %}{% endblock %} <hr>
+{% block Hostess %}{% endblock %} <hr>
+
+{% comment %} Management {% endcomment %}
+{% block Flight_Management %}{% endblock %} <hr>
+{% block Crew_Management %}{% endblock %} <hr>
+
+<footer class="sky-footer">
+    <div class="footer-container">
+        <div class="footer-col brand-col">
+            <a href="#" class="footer-logo">
+                <img src="" alt="SkyFlow Logo">
+            </a>
+            <p class="footer-bio">Elevating your journey with seamless technology and world-class hospitality.</p>
+            <div class="social-links">
+                <a href="#" class="social-icon insta" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                </a>
+
+                <a href="#" class="social-icon skype" aria-label="Skype">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M22.703 15.205c.01-.253.016-.506.016-.76 0-4.418-3.582-8-8-8-.254 0-.507.012-.76.035C13.013 4.256 10.304 2.5 7.25 2.5a7.25 7.25 0 0 0-7.25 7.25c0 3.054 1.756 5.763 3.99 6.703-.023.253-.035.506-.035.76 0 4.418 3.582 8 8 8 .254 0 .507-.012.76-.035 1.053 2.193 3.762 3.99 6.816 3.99a7.25 7.25 0 0 0 7.25-7.25c0-3.054-1.756-5.763-3.99-6.703zM14.65 18.25c-3.134 0-5.674-1.562-5.674-3.488 0-.964.636-1.536 1.485-1.536.818 0 1.258.435 1.455 1.037.318.964.912 1.512 2.38 1.512 1.156 0 2.03-.435 2.03-1.18 0-.698-.445-1.011-2.146-1.422l-1.58-.386c-2.476-.602-3.418-1.758-3.418-3.418 0-2.434 2.214-3.805 5.253-3.805 2.72 0 5.252 1.3 5.252 3.107 0 .843-.59 1.445-1.41 1.445-.838 0-1.18-.47-1.39-1.047-.327-.892-.853-1.313-1.95-1.313-1.026 0-1.78.434-1.78 1.06 0 .614.444.916 1.95 1.277l1.58.374c2.813.674 3.77 1.83 3.77 3.538 0 2.457-2.115 3.846-5.836 3.846z"/></svg>
+                </a>
+
+                <a href="#" class="social-icon x-logo" aria-label="X">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16"><path d="M12.685 5.87V5.464c0-2.227-1.803-4.032-4.03-4.032H5.345c-2.227 0-4.031 1.805-4.031 4.032v6.67c0 2.227 1.804 4.032 4.03 4.032h6.67c2.227 0 4.032-1.805 4.032-4.032v-6.3zm-4.32 4.143l-2.074-2.85h.923l1.558 2.144 1.558-2.144h.923l-2.074 2.85 2.193 3.013h-.924L8.365 10.87l-2.091 2.873h-.923l2.193-3.013z"/></svg>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#">Search Flights</a></li>
+                <li><a href="#">Flight Schedules</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Crew Portal</a></li>
+                <li><a href="#">Admin Portal</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Support</h4>
+            <ul>
+                <li><a href="#help">Help Centre / FAQ</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Refund Policy</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Stay Connected</h4>
+            <p class="contact-email">📩 contact@skyflow.com</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="bottom-container">
+            <p>&copy; 2026 SkyFlow Airlines. All rights reserved.</p>
+            <div class="tech-stack">
+                <span class="badge">Python</span>
+                <span class="badge">Django</span>
+                <span class="badge">SQL</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

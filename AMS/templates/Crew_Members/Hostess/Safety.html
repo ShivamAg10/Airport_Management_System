@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block nav_titles %}
+    <ul class="nav-links">
+        <li><a href="{% url 'Hostess' %}">Home</a></li>
+        <li><a href="{% url 'Roster' %}">Roster</a></li>
+        <li><a href="{% url 'Manifest' %}">Manifest</a></li>        
+        <li><a href="{% url 'Training' %}">Training</a></li> 
+        <li><a href="{% url 'TakeLeave' %}">TakeLeave</a></li>
+        <li><a href="{% url 'Safety' %}" class="active">Safety</a></li>
+    </ul>
+{% endblock %}
+
+{% block login_option %}
+    <div class="nav-right">
+    <div class="profile-dropdown">
+        <button class="profile-trigger">
+            <div class="avatar-wrapper">
+            <div class="user-avatar">A</div>
+            <span class="status-indicator"></span> </div>
+        <div class="user-info-text">
+            <span class="user-name">Abhishek Kumar <i class="arrow-down"></i></span>
+            <span class="user-tier">Silver Tier Member</span>
+        </div>
+        </button>
+
+        <div class="profile-menu">
+            <div class="menu-header">
+                <div class="large-avatar">A</div>
+                <div class="detail-text">
+                    <h4>Abhishek Kumar</h4>
+                    <p>abhishek.k@email.com</p>
+                    <span class="id-badge">ID: SF-99201</span>
+                </div>
+            </div>
+            
+            <div class="menu-body">
+                <div class="personal-info-item">
+                    <span>Phone:</span>
+                    <strong>+91 98765 43210</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Nationality:</span>
+                    <strong>Indian</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Passport:</span>
+                    <strong>Z1234567</strong>
+                </div>
+            </div>
+
+            <div class="menu-footer">
+                <a href="{% url 'profile' %}" class="btn-edit">
+                    <span class="icon">⚙️</span> Edit Profile
+                </a>
+                <a href="/logout" class="btn-logout">Logout</a>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block more_option %}
+    <div class="lang-dropdown">
+        <button class="lang-trigger">
+            <span class="globe-icon">🌐</span>
+            <span class="current-lang">EN</span>
+            <span class="arrow-down">▾</span>
+        </button>
+        <ul class="lang-menu">
+            <li><a href="?lang=en">English (EN)</a></li>
+            <li><a href="?lang=hi">हिन्दी (HI)</a></li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block Hostess %}
+    <div class="safety-viewport-crew">
+    <!-- Header: Safety Readiness -->
+    <header class="safety-glass-header">
+        <div class="safety-title">
+            <h1>Cabin Safety & Security</h1>
+            <p>Upholding the highest standards of passenger and crew protection.</p>
+        </div>
+        <div class="readiness-gauge">
+            <div class="gauge-ring">
+                <span class="pct">100%</span>
+            </div>
+            <span class="label">EQUIPMENT READINESS</span>
+        </div>
+    </header>
+
+    <div class="safety-grid">
+        <!-- Section 1: Pre-Flight Safety Checklist -->
+        <aside class="checklist-panel">
+            <div class="glass-card-safety">
+                <h3>Pre-Flight Equipment Check</h3>
+                <div class="check-list">
+                    <div class="check-item done">
+                        <input type="checkbox" checked>
+                        <label>Portable Oxygen Bottles (Pressure Check)</label>
+                    </div>
+                    <div class="check-item done">
+                        <input type="checkbox" checked>
+                        <label>Halon Fire Extinguishers (Seals Intact)</label>
+                    </div>
+                    <div class="check-item">
+                        <input type="checkbox">
+                        <label>Defibrillator (AED) Battery Status</label>
+                    </div>
+                    <div class="check-item">
+                        <input type="checkbox">
+                        <label>Life Vests (Correct Quantity)</label>
+                    </div>
+                </div>
+                <button class="btn-safety-verify">Finalize Safety Check</button>
+            </div>
+        </aside>
+
+        <!-- Section 2: Incident Reporting -->
+        <main class="reporting-panel">
+            <div class="glass-card-report">
+                <h3>File Cabin Incident Report</h3>
+                <div class="report-shortcuts">
+                    <button class="s-btn med">🚑 Medical</button>
+                    <button class="s-btn unruly">😤 Unruly Pax</button>
+                    <button class="s-btn tech">💺 Cabin Defect</button>
+                    <button class="s-btn security">🛡️ Security</button>
+                </div>
+                
+                <form class="safety-form">
+                    <div class="input-row">
+                        <input type="text" placeholder="Seat Number (e.g., 14C)">
+                        <input type="text" placeholder="Phase: Take-off / Cruise / Landing">
+                    </div>
+                    <textarea placeholder="Describe the incident or hazard in detail..."></textarea>
+                    <div class="evidence-upload">
+                        <span>📸 Attach Photo (e.g., Broken seat, spilled hazard)</span>
+                    </div>
+                    <button class="btn-report-critical">Submit Critical Report</button>
+                </form>
+            </div>
+        </main>
+    </div>
+    </div>
+{% endblock %} 

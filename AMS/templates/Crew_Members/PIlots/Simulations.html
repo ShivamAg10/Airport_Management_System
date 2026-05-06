@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block nav_titles %}
+    <ul class="nav-links">
+        <li><a href="{% url 'pilot' %}">Home</a></li>
+        <li><a href="{% url 'Pilot_Roster' %}">Roster</a></li>
+        <li><a href="{% url 'Logbook' %}">LogBook</a></li>
+        <li><a href="{% url 'Documents' %}">Documents</a></li>
+        <li><a href="{% url 'Simulations' %}" class="active">Simulations</a></li>
+        <li><a href="{% url 'Pilot_TakeLeave' %}">TakeLeave</a></li>
+        <li><a href="{% url 'Pilot_Safety' %}">Safety</a></li>
+    </ul>
+{% endblock %}
+
+{% block login_option %}
+    <div class="nav-right">
+    <div class="profile-dropdown">
+        <button class="profile-trigger">
+            <div class="avatar-wrapper">
+            <div class="user-avatar">A</div>
+            <span class="status-indicator"></span> </div>
+        <div class="user-info-text">
+            <span class="user-name">Abhishek Kumar <i class="arrow-down"></i></span>
+            <span class="user-tier">Silver Tier Member</span>
+        </div>
+        </button>
+
+        <div class="profile-menu">
+            <div class="menu-header">
+                <div class="large-avatar">A</div>
+                <div class="detail-text">
+                    <h4>Abhishek Kumar</h4>
+                    <p>abhishek.k@email.com</p>
+                    <span class="id-badge">ID: SF-99201</span>
+                </div>
+            </div>
+            
+            <div class="menu-body">
+                <div class="personal-info-item">
+                    <span>Phone:</span>
+                    <strong>+91 98765 43210</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Nationality:</span>
+                    <strong>Indian</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Passport:</span>
+                    <strong>Z1234567</strong>
+                </div>
+            </div>
+
+            <div class="menu-footer">
+                <a href="{% url 'profile' %}" class="btn-edit">
+                    <span class="icon">⚙️</span> Edit Profile
+                </a>
+                <a href="/logout" class="btn-logout">Logout</a>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block more_option %}
+    <div class="lang-dropdown">
+        <button class="lang-trigger">
+            <span class="globe-icon">🌐</span>
+            <span class="current-lang">EN</span>
+            <span class="arrow-down">▾</span>
+        </button>
+        <ul class="lang-menu">
+            <li><a href="?lang=en">English (EN)</a></li>
+            <li><a href="?lang=hi">हिन्दी (HI)</a></li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block Pilots %}
+    <div class="training-container">
+    <header class="training-header">
+        <div class="title-area">
+            <h1>Simulations & Training</h1>
+            <p>Maintain your type-rating proficiency and technical currency.</p>
+        </div>
+        <div class="currency-badge">
+            <span class="label">Simulator Currency</span>
+            <span class="status-ok">✔ CURRENT</span>
+        </div>
+    </header>
+
+    <!-- Section 1: Upcoming Critical Events -->
+    <section class="priority-training">
+        <div class="sim-alert-card">
+            <div class="sim-icon">🎮</div>
+            <div class="sim-details">
+                <h3>Recurrent Sim Check (LPC/OPC)</h3>
+                <p>Location: <strong>CAE Training Centre, Bengaluru</strong></p>
+                <p>Date: <strong>22 June 2026</strong> | Slot: <strong>04:00 - 08:00 (Graveyard)</strong></p>
+            </div>
+            <div class="sim-timer">
+                <span class="days-left">48</span>
+                <span class="unit">Days to Check</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="training-grid">
+        <!-- Section 2: Ground School & E-Learning -->
+        <aside class="elearning-column">
+            <h3>Mandatory Ground School</h3>
+            <div class="course-list">
+                <div class="course-item completed">
+                    <div class="course-info">
+                        <strong>Monsoon Operations 2026</strong>
+                        <span>Completed on 15 Apr</span>
+                    </div>
+                    <span class="score">98%</span>
+                </div>
+                <div class="course-item pending">
+                    <div class="course-info">
+                        <strong>Low Visibility Procedures (LVP)</strong>
+                        <span>Due by 30 May</span>
+                    </div>
+                    <button class="btn-start">Start Exam</button>
+                </div>
+                <div class="course-item">
+                    <div class="course-info">
+                        <strong>Dangerous Goods (DGR)</strong>
+                        <span>Recurring Sept 2026</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Section 3: Training History -->
+        <main class="history-column">
+            <h3>Training History</h3>
+            <div class="training-table-wrapper">
+                <table class="training-table">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Date</th>
+                            <th>Result</th>
+                            <th>Instructor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>A320 Sim Check</td>
+                            <td>Dec 2025</td>
+                            <td><span class="pass">Satis</span></td>
+                            <td>Capt. V. Sharma</td>
+                        </tr>
+                        <tr>
+                            <td>CRM Workshop</td>
+                            <td>Oct 2025</td>
+                            <td><span class="pass">Attended</span></td>
+                            <td>Psych. Team</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    </div>
+{% endblock %} 

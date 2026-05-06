@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block nav_titles %}
+    <ul class="nav-links">
+        <li><a href="{% url 'pilot' %}">Home</a></li>
+        <li><a href="{% url 'Pilot_Roster' %}">Roster</a></li>
+        <li><a href="{% url 'Logbook' %}">LogBook</a></li>
+        <li><a href="{% url 'Documents' %}">Documents</a></li>
+        <li><a href="{% url 'Simulations' %}">Simulations</a></li>
+        <li><a href="{% url 'Pilot_TakeLeave' %}" class="active">TakeLeave</a></li>
+        <li><a href="{% url 'Pilot_Safety' %}">Safety</a></li>
+    </ul>
+{% endblock %}
+
+{% block login_option %}
+    <div class="nav-right">
+    <div class="profile-dropdown">
+        <button class="profile-trigger">
+            <div class="avatar-wrapper">
+            <div class="user-avatar">A</div>
+            <span class="status-indicator"></span> </div>
+        <div class="user-info-text">
+            <span class="user-name">Abhishek Kumar <i class="arrow-down"></i></span>
+            <span class="user-tier">Silver Tier Member</span>
+        </div>
+        </button>
+
+        <div class="profile-menu">
+            <div class="menu-header">
+                <div class="large-avatar">A</div>
+                <div class="detail-text">
+                    <h4>Abhishek Kumar</h4>
+                    <p>abhishek.k@email.com</p>
+                    <span class="id-badge">ID: SF-99201</span>
+                </div>
+            </div>
+            
+            <div class="menu-body">
+                <div class="personal-info-item">
+                    <span>Phone:</span>
+                    <strong>+91 98765 43210</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Nationality:</span>
+                    <strong>Indian</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Passport:</span>
+                    <strong>Z1234567</strong>
+                </div>
+            </div>
+
+            <div class="menu-footer">
+                <a href="{% url 'profile' %}" class="btn-edit">
+                    <span class="icon">⚙️</span> Edit Profile
+                </a>
+                <a href="/logout" class="btn-logout">Logout</a>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block more_option %}
+    <div class="lang-dropdown">
+        <button class="lang-trigger">
+            <span class="globe-icon">🌐</span>
+            <span class="current-lang">EN</span>
+            <span class="arrow-down">▾</span>
+        </button>
+        <ul class="lang-menu">
+            <li><a href="?lang=en">English (EN)</a></li>
+            <li><a href="?lang=hi">हिन्दी (HI)</a></li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block Pilots %}
+    <div class="leave-container">
+    <header class="leave-header">
+        <div class="title-area">
+            <h1>Leave Management</h1>
+            <p>Request time off and track your vacation balance.</p>
+        </div>
+        <div class="leave-summary">
+            <div class="summary-item">
+                <span class="label">Annual Leave</span>
+                <div class="val">14 <small>Days Left</small></div>
+            </div>
+            <div class="summary-item">
+                <span class="label">Sick Leave</span>
+                <div class="val">08 <small>Days Left</small></div>
+            </div>
+        </div>
+    </header>
+
+    <div class="leave-grid">
+        <!-- Section 1: Leave Request Form -->
+        <aside class="request-section">
+            <div class="card">
+                <h3>New Leave Request</h3>
+                <form class="leave-form">
+                    <div class="form-group">
+                        <label>Leave Type</label>
+                        <select>
+                            <option>Annual Leave (Vacation)</option>
+                            <option>Sick Leave / Medical</option>
+                            <option>Casual Leave</option>
+                            <option>Maternity/Paternity</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Start Date</label>
+                            <input type="date">
+                        </div>
+                        <div class="form-group">
+                            <label>End Date</label>
+                            <input type="date">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Reason / Remarks</label>
+                        <textarea placeholder="Optional..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Submit Request</button>
+                </form>
+            </div>
+        </aside>
+
+        <!-- Section 2: Request Status & History -->
+        <main class="history-section">
+            <div class="card">
+                <h3>Request History</h3>
+                <div class="leave-list">
+                    <!-- Pending Request -->
+                    <div class="leave-item pending">
+                        <div class="leave-info">
+                            <strong>15 Jun - 20 Jun</strong>
+                            <span>Annual Leave (6 Days)</span>
+                        </div>
+                        <div class="leave-status">Pending Review</div>
+                    </div>
+
+                    <!-- Approved Request -->
+                    <div class="leave-item approved">
+                        <div class="leave-info">
+                            <strong>10 Mar - 12 Mar</strong>
+                            <span>Casual Leave (3 Days)</span>
+                        </div>
+                        <div class="leave-status">Approved</div>
+                    </div>
+
+                    <!-- Rejected Request -->
+                    <div class="leave-item rejected">
+                        <div class="leave-info">
+                            <strong>05 Jan - 07 Jan</strong>
+                            <span>Annual Leave (3 Days)</span>
+                        </div>
+                        <div class="leave-status">Rejected</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    </div>
+{% endblock %} 

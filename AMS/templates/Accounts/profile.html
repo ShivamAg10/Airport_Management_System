@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block nav_titles %}
+    <ul class="nav-links">
+        <li><a href="{% url 'Booking_Flights' %}" class="active">Booking Flights</a></li>
+        <li><a href="{% url 'Search_Results' %}">Search Result</a></li>
+        <li><a href="{% url 'Flight_Status' %}">Flight Status</a></li>
+    </ul>
+{% endblock %}
+
+{% block more_option %}
+    <div class="lang-dropdown">
+        <button class="lang-trigger">
+            <span class="current-lang">Manage Trips</span>
+            <span class="arrow-down">▾</span>
+        </button>
+        <ul class="lang-menu">
+            <li><a href="{% url 'Check_In' %}">✅ Web Check-In</a></li>
+            <li><a href="{% url 'Booking_History' %}">🕒 Booking History</a></li>
+            <li><a href="{% url 'Cancellations' %}">❌ Cancellations</a></li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block login_option %}
+    <div class="nav-right">
+    <div class="profile-dropdown">
+        <button class="profile-trigger">
+            <div class="avatar-wrapper">
+            <div class="user-avatar">A</div>
+            <span class="status-indicator"></span> </div>
+        <div class="user-info-text">
+            <span class="user-name">Abhishek Kumar <i class="arrow-down"></i></span>
+            <span class="user-tier">Silver Tier Member</span>
+        </div>
+        </button>
+
+        <div class="profile-menu">
+            <div class="menu-header">
+                <div class="large-avatar">A</div>
+                <div class="detail-text">
+                    <h4>Abhishek Kumar</h4>
+                    <p>abhishek.k@email.com</p>
+                    <span class="id-badge">ID: SF-99201</span>
+                </div>
+            </div>
+            
+            <div class="menu-body">
+                <div class="personal-info-item">
+                    <span>Phone:</span>
+                    <strong>+91 98765 43210</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Nationality:</span>
+                    <strong>Indian</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Passport:</span>
+                    <strong>Z1234567</strong>
+                </div>
+            </div>
+
+            <div class="menu-footer">
+                <a href="/profile/edit" class="btn-edit">
+                    <span class="icon">⚙️</span> Edit Profile
+                </a>
+                <a href="/logout" class="btn-logout">Logout</a>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block Register %}
+    <div class="profile-page-container">
+    <aside class="profile-sidebar">
+        <div class="profile-photo-section">
+            <div class="main-avatar">A</div>
+            <button class="change-photo-btn">📷</button>
+        </div>
+        <div class="user-id-info">
+            <h2>Abhishek Kumar</h2>
+            <span class="badge silver">Silver Tier Member</span>
+            <p class="member-since">Member since Jan 2026</p>
+        </div>
+        
+        <nav class="profile-nav">
+            <a href="#" class="active">Personal Info</a>
+            <a href="{% url 'Booking_History' %}">My Bookings</a>
+            <a href="#">Payment Methods</a>
+            <a href="#" class="danger-zone">Delete Account</a>
+        </nav>
+    </aside>
+
+    <main class="profile-main-content">
+        <div class="content-header">
+            <h3>Personal Information</h3>
+            <p>Update your details to ensure a smooth check-in process.</p>
+        </div>
+
+        <form method="POST" class="edit-profile-form">
+            {% csrf_token %}
+            <div class="form-section-grid">
+                <div class="input-field">
+                    <label>Full Name</label>
+                    <input type="text" value="Abhishek Kumar" name="name">
+                </div>
+                <div class="input-field">
+                    <label>Email Address</label>
+                    <input type="email" value="abhishek.k@email.com" name="email">
+                </div>
+                <div class="input-field">
+                    <label>Phone Number</label>
+                    <input type="text" value="+91 98765 43210" name="phone">
+                </div>
+                <div class="input-field">
+                    <label>Nationality</label>
+                    <input type="text" value="Indian" name="nationality">
+                </div>
+
+                <div class="input-field">
+                    <label>Aadhar Number</label>
+                    <input type="text" value="1234-5678-9012" name="aadhar">
+                </div>
+                <div class="input-field">
+                    <label>Passport Number</label>
+                    <input type="text" value="Z1234567" name="passport">
+                </div>
+            </div>
+
+            <div class="profile-actions">
+                <button type="submit" class="btn-save">Save Changes</button>
+                <button type="button" class="btn-cancel">Discard</button>
+            </div>
+        </form>
+    </main>
+    </div>
+{% endblock %} 

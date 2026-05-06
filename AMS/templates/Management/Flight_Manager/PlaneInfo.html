@@ -1,0 +1,258 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block nav_titles %}
+    <ul class="nav-links">
+        <li><a href="{% url 'Flight_Manager' %}">Home</a></li>
+        <li><a href="{% url 'FlightInfo' %}">FlightInfo</a></li>
+        <li><a href="{% url 'PlaneInfo' %}" class="active">PlaneInfo</a></li>
+        <li><a href="{% url 'AircraftMaintenance' %}">AircraftMaintenance</a></li>
+    </ul>
+{% endblock %}
+
+{% block login_option %}
+    <div class="nav-right">
+    <div class="profile-dropdown">
+        <button class="profile-trigger">
+            <div class="avatar-wrapper">
+            <div class="user-avatar">A</div>
+            <span class="status-indicator"></span> </div>
+        <div class="user-info-text">
+            <span class="user-name">Abhishek Kumar <i class="arrow-down"></i></span>
+            <span class="user-tier">Silver Tier Member</span>
+        </div>
+        </button>
+
+        <div class="profile-menu">
+            <div class="menu-header">
+                <div class="large-avatar">A</div>
+                <div class="detail-text">
+                    <h4>Abhishek Kumar</h4>
+                    <p>abhishek.k@email.com</p>
+                    <span class="id-badge">ID: SF-99201</span>
+                </div>
+            </div>
+            
+            <div class="menu-body">
+                <div class="personal-info-item">
+                    <span>Phone:</span>
+                    <strong>+91 98765 43210</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Nationality:</span>
+                    <strong>Indian</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Passport:</span>
+                    <strong>Z1234567</strong>
+                </div>
+            </div>
+
+            <div class="menu-footer">
+                <a href="{% url 'profile' %}" class="btn-edit">
+                    <span class="icon">⚙️</span> Edit Profile
+                </a>
+                <a href="/logout" class="btn-logout">Logout</a>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block more_option %}
+    <div class="lang-dropdown">
+        <button class="lang-trigger">
+            <span class="globe-icon">🌐</span>
+            <span class="current-lang">EN</span>
+            <span class="arrow-down">▾</span>
+        </button>
+        <ul class="lang-menu">
+            <li><a href="?lang=en">English (EN)</a></li>
+            <li><a href="?lang=hi">हिन्दी (HI)</a></li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block Flight_Management %}
+    <div class="fleet-viewport">
+    <!-- Header: Dynamic Asset Overview -->
+    <header class="fleet-header">
+        <div class="brand-section">
+            <h1 class="glitch-text" data-text="FLEET ASSETS">FLEET ASSETS</h1>
+            <p>Live technical status and configuration management.</p>
+        </div>
+        <div class="fleet-quick-stats">
+            <div class="stat-hex">
+                <span class="num">24</span>
+                <span class="lab">Total Tails</span>
+            </div>
+            <div class="stat-hex green">
+                <span class="num">18</span>
+                <span class="lab">Ready</span>
+            </div>
+            <a class="btn-register-glow" href="{% url 'AddAircraft' %}">
+                <span class="icon">+</span> Register Aircraft
+            </a>
+        </div>
+    </header>
+
+    <!-- Fleet Grid -->
+    <main class="fleet-grid">
+        <!-- Aircraft Card 1 -->
+        <div class="plane-card active">
+            <div class="card-inner">
+                <div class="card-top">
+                    <div class="tail-badge">VT-ALX</div>
+                    <span class="status-indicator">Active</span>
+                </div>
+                
+                <div class="plane-visual">
+                    <div class="plane-icon-bg">✈️</div>
+                    <h2 class="model-name">Airbus A320 Neo</h2>
+                </div>
+
+                <div class="plane-specs">
+                    <div class="spec-item">
+                        <small>Capacity</small>
+                        <strong>186 <small>PAX</small></strong>
+                    </div>
+                    <div class="spec-item">
+                        <small>Engine Hrs</small>
+                        <strong>14,200</strong>
+                    </div>
+                </div>
+
+                <div class="card-actions">
+                    <button class="action-btn edit">Update Tech Log</button>
+                    <button class="action-btn delete">Retire</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Aircraft Card 2 -->
+        <div class="plane-card active">
+            <div class="card-inner">
+                <div class="card-top">
+                    <div class="tail-badge">VT-ALX</div>
+                    <span class="status-indicator">Active</span>
+                </div>
+                
+                <div class="plane-visual">
+                    <div class="plane-icon-bg">✈️</div>
+                    <h2 class="model-name">Airbus A320 Neo</h2>
+                </div>
+
+                <div class="plane-specs">
+                    <div class="spec-item">
+                        <small>Capacity</small>
+                        <strong>186 <small>PAX</small></strong>
+                    </div>
+                    <div class="spec-item">
+                        <small>Engine Hrs</small>
+                        <strong>14,200</strong>
+                    </div>
+                </div>
+
+                <div class="card-actions">
+                    <button class="action-btn edit">Update Tech Log</button>
+                    <button class="action-btn delete">Retire</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Aircraft Card 3 -->
+        <div class="plane-card active">
+            <div class="card-inner">
+                <div class="card-top">
+                    <div class="tail-badge">VT-ALX</div>
+                    <span class="status-indicator">Active</span>
+                </div>
+                
+                <div class="plane-visual">
+                    <div class="plane-icon-bg">✈️</div>
+                    <h2 class="model-name">Airbus A320 Neo</h2>
+                </div>
+
+                <div class="plane-specs">
+                    <div class="spec-item">
+                        <small>Capacity</small>
+                        <strong>186 <small>PAX</small></strong>
+                    </div>
+                    <div class="spec-item">
+                        <small>Engine Hrs</small>
+                        <strong>14,200</strong>
+                    </div>
+                </div>
+
+                <div class="card-actions">
+                    <button class="action-btn edit">Update Tech Log</button>
+                    <button class="action-btn delete">Retire</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Aircraft Card 4 -->
+        <div class="plane-card active">
+            <div class="card-inner">
+                <div class="card-top">
+                    <div class="tail-badge">VT-ALX</div>
+                    <span class="status-indicator">Active</span>
+                </div>
+                
+                <div class="plane-visual">
+                    <div class="plane-icon-bg">✈️</div>
+                    <h2 class="model-name">Airbus A320 Neo</h2>
+                </div>
+
+                <div class="plane-specs">
+                    <div class="spec-item">
+                        <small>Capacity</small>
+                        <strong>186 <small>PAX</small></strong>
+                    </div>
+                    <div class="spec-item">
+                        <small>Engine Hrs</small>
+                        <strong>14,200</strong>
+                    </div>
+                </div>
+
+                <div class="card-actions">
+                    <button class="action-btn edit">Update Tech Log</button>
+                    <button class="action-btn delete">Retire</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Aircraft Card 2 (Maintenance Mode) -->
+        {% comment %} <div class="plane-card maintenance">
+            <div class="card-inner">
+                <div class="card-top">
+                    <div class="tail-badge">VT-BOM</div>
+                    <span class="status-indicator">Maintenance</span>
+                </div>
+                
+                <div class="plane-visual">
+                    <div class="plane-icon-bg">🛠️</div>
+                    <h2 class="model-name">Boeing 737 Max 8</h2>
+                </div>
+
+                <div class="plane-specs">
+                    <div class="spec-item">
+                        <small>Configuration</small>
+                        <strong>J12 Y150</strong>
+                    </div>
+                    <div class="spec-item">
+                        <small>Next Check</small>
+                        <strong>12 May</strong>
+                    </div>
+                </div>
+
+                <div class="card-actions">
+                    <button class="action-btn edit">Service Entry</button>
+                    <button class="action-btn delete">Retire</button>
+                </div>
+            </div>
+        </div> {% endcomment %}
+    </main>
+    </div>
+{% endblock %} 

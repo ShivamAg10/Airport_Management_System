@@ -1,0 +1,141 @@
+.login-wrapper {
+    display: flex;
+    min-height: 100vh;
+    background: #ffffff;
+}
+
+/* Left Visual Side */
+.login-visual {
+    flex: 1.2;
+    background: linear-gradient(135deg, #003580 0%, #0056b3 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px;
+    color: white;
+}
+
+.visual-content {
+    max-width: 450px;
+}
+
+.logo-large {
+    font-size: 2.5rem;
+    font-weight: 900;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px 20px;
+    border-radius: 12px;
+    display: inline-block;
+    margin-bottom: 30px;
+}
+
+.visual-content h1 { font-size: 2.8rem; margin-bottom: 20px; }
+.visual-content p { font-size: 1.1rem; opacity: 0.8; line-height: 1.6; }
+
+/* Right Login Side */
+.login-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.login-box {
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-box h2 { font-size: 2rem; color: #1e293b; margin-bottom: 8px; }
+.subtitle { color: #64748b; margin-bottom: 35px; }
+
+/* Form Elements */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.input-group label {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #475569;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: 0.2s;
+}
+
+.input-group input:focus {
+    border-color: #003580;
+    box-shadow: 0 0 0 4px rgba(0, 53, 128, 0.1);
+    outline: none;
+}
+
+.forgot-link {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #003580;
+    text-decoration: none;
+}
+
+.form-options {
+    margin: 25px 0;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: #64748b;
+    cursor: pointer;
+}
+
+.btn-log-in {
+    width: 100%;
+    background: #003580;
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-login:hover {
+    background: #00265c;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 53, 128, 0.15);
+}
+
+.register-prompt {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+.register-prompt a {
+    color: #003580;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+/* Mobile Responsive */
+@media (max-width: 900px) {
+    .login-visual { display: none; }
+    .login-wrapper { justify-content: center; }
+}

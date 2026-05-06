@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block nav_titles %}
+    <ul class="nav-links">
+        <li><a href="{% url 'Crew_Manager' %}">Home</a></li>
+        <li><a href="{% url 'MissionHub' %}">MissionHub</a></li>
+        <li><a href="{% url 'PilotDeck' %}">PilotDeck</a></li>
+        <li><a href="{% url 'HostessDeck' %}" class="active">HostessDeck</a></li>
+        <li><a href="{% url 'DutyRoster' %}">DutyRoster</a></li>
+        <li><a href="{% url 'LeaveDesk' %}">LeaveDesk</a></li>
+    </ul>
+{% endblock %}
+
+{% block login_option %}
+    <div class="nav-right">
+    <div class="profile-dropdown">
+        <button class="profile-trigger">
+            <div class="avatar-wrapper">
+            <div class="user-avatar">A</div>
+            <span class="status-indicator"></span> </div>
+        <div class="user-info-text">
+            <span class="user-name">Abhishek Kumar <i class="arrow-down"></i></span>
+            <span class="user-tier">Silver Tier Member</span>
+        </div>
+        </button>
+
+        <div class="profile-menu">
+            <div class="menu-header">
+                <div class="large-avatar">A</div>
+                <div class="detail-text">
+                    <h4>Abhishek Kumar</h4>
+                    <p>abhishek.k@email.com</p>
+                    <span class="id-badge">ID: SF-99201</span>
+                </div>
+            </div>
+            
+            <div class="menu-body">
+                <div class="personal-info-item">
+                    <span>Phone:</span>
+                    <strong>+91 98765 43210</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Nationality:</span>
+                    <strong>Indian</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Passport:</span>
+                    <strong>Z1234567</strong>
+                </div>
+            </div>
+
+            <div class="menu-footer">
+                <a href="{% url 'profile' %}" class="btn-edit">
+                    <span class="icon">⚙️</span> Edit Profile
+                </a>
+                <a href="/logout" class="btn-logout">Logout</a>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block more_option %}
+    <div class="lang-dropdown">
+        <button class="lang-trigger">
+            <span class="globe-icon">🌐</span>
+            <span class="current-lang">EN</span>
+            <span class="arrow-down">▾</span>
+        </button>
+        <ul class="lang-menu">
+            <li><a href="?lang=en">English (EN)</a></li>
+            <li><a href="?lang=hi">हिन्दी (HI)</a></li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block Crew_Management %}
+    <div class="registration-viewport">
+    <main class="form-container glass-canvas">
+        <header class="form-header">
+            <h2>Add New Cabin Crew Member</h2>
+            <p>Ensure all service certifications are verified before submission.</p>
+        </header>
+
+        <form method="POST" class="dashing-form">
+            {% csrf_token %}
+            
+            <div class="form-section">
+                <h3 class="section-tag">01. Personnel Details</h3>
+                <div class="input-grid">
+                    <div class="input-block">
+                        <label>Full Name</label>
+                        <input type="text" name="name" placeholder="Enter Full Name" required>
+                    </div>
+                    <div class="input-block">
+                        <label>Home Base</label>
+                        <select name="base_city">
+                            <option value="DEL">New Delhi (DEL)</option>
+                            <option value="BOM">Mumbai (BOM)</option>
+                            <option value="DXB">Dubai (DXB)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3 class="section-tag">02. Service & Languages</h3>
+                <div class="input-grid">
+                    <div class="input-block">
+                        <label>Designation</label>
+                        <select name="role">
+                            <option value="lead">Cabin Crew Lead</option>
+                            <option value="senior">Senior Hostess</option>
+                            <option value="junior">Junior Hostess</option>
+                        </select>
+                    </div>
+                    <div class="input-block">
+                        <label>Primary Languages</label>
+                        <input type="text" name="languages" placeholder="e.g. Hindi, English, Spanish">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-footer">
+                <button type="submit" class="btn-primary-silver">INITIALIZE PROFILE</button>
+            </div>
+        </form>
+    </main>
+    </div>
+{% endblock %} 

@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block nav_titles %}
+    <ul class="nav-links">
+        <li><a href="{% url 'Crew_Manager' %}">Home</a></li>
+        <li><a href="{% url 'MissionHub' %}" class="active">MissionHub</a></li>
+        <li><a href="{% url 'PilotDeck' %}">PilotDeck</a></li>
+        <li><a href="{% url 'HostessDeck' %}">HostessDeck</a></li>
+        <li><a href="{% url 'DutyRoster' %}">DutyRoster</a></li>
+        <li><a href="{% url 'LeaveDesk' %}">LeaveDesk</a></li>
+    </ul>
+{% endblock %}
+
+{% block login_option %}
+    <div class="nav-right">
+    <div class="profile-dropdown">
+        <button class="profile-trigger">
+            <div class="avatar-wrapper">
+            <div class="user-avatar">A</div>
+            <span class="status-indicator"></span> </div>
+        <div class="user-info-text">
+            <span class="user-name">Abhishek Kumar <i class="arrow-down"></i></span>
+            <span class="user-tier">Silver Tier Member</span>
+        </div>
+        </button>
+
+        <div class="profile-menu">
+            <div class="menu-header">
+                <div class="large-avatar">A</div>
+                <div class="detail-text">
+                    <h4>Abhishek Kumar</h4>
+                    <p>abhishek.k@email.com</p>
+                    <span class="id-badge">ID: SF-99201</span>
+                </div>
+            </div>
+            
+            <div class="menu-body">
+                <div class="personal-info-item">
+                    <span>Phone:</span>
+                    <strong>+91 98765 43210</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Nationality:</span>
+                    <strong>Indian</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Passport:</span>
+                    <strong>Z1234567</strong>
+                </div>
+            </div>
+
+            <div class="menu-footer">
+                <a href="{% url 'profile' %}" class="btn-edit">
+                    <span class="icon">⚙️</span> Edit Profile
+                </a>
+                <a href="/logout" class="btn-logout">Logout</a>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block more_option %}
+    <div class="lang-dropdown">
+        <button class="lang-trigger">
+            <span class="globe-icon">🌐</span>
+            <span class="current-lang">EN</span>
+            <span class="arrow-down">▾</span>
+        </button>
+        <ul class="lang-menu">
+            <li><a href="?lang=en">English (EN)</a></li>
+            <li><a href="?lang=hi">हिन्दी (HI)</a></li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block Crew_Management %}
+    <div class="mission-viewport">
+    <header class="mission-header">
+        <div class="header-logic">
+            <span class="status-indicator-glow">HUB STATUS: READY</span>
+            <h1>Mission <span class="silver-text">Assignment Hub</span></h1>
+        </div>
+        <div class="filter-controls">
+            <input type="date" value="2026-05-06" class="glass-date-picker">
+            <button class="btn-refresh-hub">🔄 Sync Schedules</button>
+        </div>
+    </header>
+
+    <div class="mission-canvas">
+        <!-- Left Column: Pending Flight Assignments -->
+        <section class="assignment-queue">
+            <h3 class="pane-title">Unassigned Flights</h3>
+            <div class="flight-assignment-card alert-border">
+                <div class="card-meta">
+                    <span class="flight-no">SF-202</span>
+                    <span class="aircraft-req">REQ: A320 NEO</span>
+                </div>
+                <div class="route-display">DEL ➔ BOM</div>
+                <div class="crew-slots">
+                    <div class="slot empty">PIC (Pilot in Command)</div>
+                    <div class="slot empty">FO (First Officer)</div>
+                    <div class="slot empty">Cabin Lead</div>
+                </div>
+                <button class="btn-open-roster">Assign Crew</button>
+            </div>
+        </section>
+
+        <!-- Right Column: Live Personnel Roster -->
+        <aside class="personnel-roster">
+            <div class="roster-tabs">
+                <button class="tab active">Pilots</button>
+                <button class="tab">Cabin Crew</button>
+            </div>
+            
+            <div class="search-roster">
+                <input type="text" placeholder="Search by name, ID, or rating...">
+            </div>
+
+            <div class="crew-list-scroll">
+                <!-- Pilot Item -->
+                <div class="crew-item-card ready">
+                    <div class="crew-avatar">
+                        <div class="online-dot"></div>
+                        <img src="pilot1.jpg" alt="P">
+                    </div>
+                    <div class="crew-details">
+                        <strong>Capt. Arjun Mehra</strong>
+                        <small>ID: #PLT-77 | Rating: A320, B787</small>
+                        <div class="readiness-bar"><div class="fill" style="width: 100%"></div></div>
+                    </div>
+                    <button class="btn-add-to-flight">+</button>
+                </div>
+
+                <!-- Unavailable Pilot (Resting) -->
+                <div class="crew-item-card resting">
+                    <div class="crew-avatar">
+                        <div class="rest-dot"></div>
+                    </div>
+                    <div class="crew-details">
+                        <strong>First Officer Sarah Khan</strong>
+                        <small>Resting: 04h 20m remaining</small>
+                    </div>
+                    <span class="status-tag">RESTING</span>
+                </div>
+            </div>
+        </aside>
+    </div>
+    </div>
+{% endblock %} 

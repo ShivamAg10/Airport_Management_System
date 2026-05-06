@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block nav_titles %}
+    <ul class="nav-links">
+        <li><a href="{% url 'Booking_Flights' %}">Booking Flights</a></li>
+        <li><a href="{% url 'Search_Results' %}">Search Result</a></li>
+        <li><a href="{% url 'Flight_Status' %}">Flight Status</a></li>
+    </ul>
+{% endblock %}
+
+{% block more_option %}
+    <div class="lang-dropdown">
+        <button class="lang-trigger">
+            <span class="current-lang">Manage Trips</span>
+            <span class="arrow-down">▾</span>
+        </button>
+        <ul class="lang-menu">
+            <li><a href="{% url 'Check_In' %}">✅ Web Check-In</a></li>
+            <li><a href="{% url 'Booking_History' %}">🕒 Booking History</a></li>
+            <li><a href="{% url 'Cancellations' %}">❌ Cancellations</a></li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block login_option %}
+    <div class="nav-right">
+    <div class="profile-dropdown">
+        <button class="profile-trigger">
+            <div class="avatar-wrapper">
+            <div class="user-avatar">A</div>
+            <span class="status-indicator"></span> </div>
+        <div class="user-info-text">
+            <span class="user-name">Abhishek Kumar <i class="arrow-down"></i></span>
+            <span class="user-tier">Silver Tier Member</span>
+        </div>
+        </button>
+
+        <div class="profile-menu">
+            <div class="menu-header">
+                <div class="large-avatar">A</div>
+                <div class="detail-text">
+                    <h4>Abhishek Kumar</h4>
+                    <p>abhishek.k@email.com</p>
+                    <span class="id-badge">ID: SF-99201</span>
+                </div>
+            </div>
+            
+            <div class="menu-body">
+                <div class="personal-info-item">
+                    <span>Phone:</span>
+                    <strong>+91 98765 43210</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Nationality:</span>
+                    <strong>Indian</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Passport:</span>
+                    <strong>Z1234567</strong>
+                </div>
+            </div>
+
+            <div class="menu-footer">
+                <a href="{% url 'profile' %}" class="btn-edit">
+                    <span class="icon">⚙️</span> Edit Profile
+                </a>
+                <a href="/logout" class="btn-logout">Logout</a>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+
+{% block Booking_History %}
+    <div class="history-container">
+    <div class="history-header">
+        <h2>My Bookings</h2>
+        <p>View, manage, and download your travel documents.</p>
+    </div>
+
+    <div class="history-tabs">
+        <button class="tab-btn active">Upcoming Trips</button>
+        <button class="tab-btn">Past Trips</button>
+    </div>
+
+    <div class="history-list">
+        <div class="history-card upcoming">
+            <div class="card-status">
+                <span class="badge confirmed">Confirmed</span>
+                <span class="pnr-tag">PNR: SF99201</span>
+            </div>
+
+            <div class="card-main">
+                <div class="route-info">
+                    <div class="city-box">
+                        <strong>DEL</strong>
+                        <span>Delhi</span>
+                    </div>
+                    <div class="trip-arrow">➔</div>
+                    <div class="city-box">
+                        <strong>BOM</strong>
+                        <span>Mumbai</span>
+                    </div>
+                </div>
+
+                <div class="flight-meta">
+                    <div class="meta-item">
+                        <label>Departure</label>
+                        <strong>26 APR 2026</strong>
+                    </div>
+                    <div class="meta-item">
+                        <label>Flight</label>
+                        <strong>SF-202</strong>
+                    </div>
+                    <div class="meta-item">
+                        <label>Seat</label>
+                        <strong>2B</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-actions">
+                <a href="#" class="action-link secondary">View Details</a>
+                <a href="#" class="action-link primary">Web Check-in</a>
+            </div>
+        </div>
+
+        <div class="history-card past">
+            <div class="card-status">
+                <span class="badge completed">Completed</span>
+                <span class="pnr-tag">PNR: SF88102</span>
+            </div>
+
+            <div class="card-main">
+                <div class="route-info">
+                    <div class="city-box">
+                        <strong>BLR</strong>
+                        <span>Bangalore</span>
+                    </div>
+                    <div class="trip-arrow">➔</div>
+                    <div class="city-box">
+                        <strong>DEL</strong>
+                        <span>Delhi</span>
+                    </div>
+                </div>
+                <div class="flight-meta">
+                    <span>Travelled on 10 JAN 2026</span>
+                </div>
+            </div>
+
+            <div class="card-actions">
+                <a href="#" class="action-link outline">Download Invoice</a>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+    

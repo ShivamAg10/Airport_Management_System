@@ -1,0 +1,165 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block nav_titles %}
+    <ul class="nav-links">
+        <li><a href="{% url 'Hostess' %}">Home</a></li>
+        <li><a href="{% url 'Roster' %}" class="active">Roster</a></li>
+        <li><a href="{% url 'Manifest' %}">Manifest</a></li>        
+        <li><a href="{% url 'Training' %}">Training</a></li> 
+        <li><a href="{% url 'TakeLeave' %}">TakeLeave</a></li>
+        <li><a href="{% url 'Safety' %}">Safety</a></li>
+    </ul>
+{% endblock %}
+
+{% block login_option %}
+    <div class="nav-right">
+    <div class="profile-dropdown">
+        <button class="profile-trigger">
+            <div class="avatar-wrapper">
+            <div class="user-avatar">A</div>
+            <span class="status-indicator"></span> </div>
+        <div class="user-info-text">
+            <span class="user-name">Abhishek Kumar <i class="arrow-down"></i></span>
+            <span class="user-tier">Silver Tier Member</span>
+        </div>
+        </button>
+
+        <div class="profile-menu">
+            <div class="menu-header">
+                <div class="large-avatar">A</div>
+                <div class="detail-text">
+                    <h4>Abhishek Kumar</h4>
+                    <p>abhishek.k@email.com</p>
+                    <span class="id-badge">ID: SF-99201</span>
+                </div>
+            </div>
+            
+            <div class="menu-body">
+                <div class="personal-info-item">
+                    <span>Phone:</span>
+                    <strong>+91 98765 43210</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Nationality:</span>
+                    <strong>Indian</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Passport:</span>
+                    <strong>Z1234567</strong>
+                </div>
+            </div>
+
+            <div class="menu-footer">
+                <a href="{% url 'profile' %}" class="btn-edit">
+                    <span class="icon">⚙️</span> Edit Profile
+                </a>
+                <a href="/logout" class="btn-logout">Logout</a>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block more_option %}
+    <div class="lang-dropdown">
+        <button class="lang-trigger">
+            <span class="globe-icon">🌐</span>
+            <span class="current-lang">EN</span>
+            <span class="arrow-down">▾</span>
+        </button>
+        <ul class="lang-menu">
+            <li><a href="?lang=en">English (EN)</a></li>
+            <li><a href="?lang=hi">हिन्दी (HI)</a></li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block Hostess %}
+    <div class="roster-viewport">
+    <!-- Header with Glassmorphism -->
+    <header class="roster-glass-header">
+        <div class="brand-section">
+            <h1>May 2026</h1>
+            <div class="badge-row">
+                <span class="badge duty">18 Duty Days</span>
+                <span class="badge layover">4 Layovers</span>
+            </div>
+        </div>
+        <button class="sync-btn-modern">
+            <span class="icon">📅</span> Sync Calendar
+        </button>
+    </header>
+
+    <div class="roster-content">
+        <!-- Modern Vertical Date Navigation -->
+        <nav class="date-scroll">
+            <div class="date-node off">
+                <span class="d-num">01</span>
+                <span class="d-txt">FRI</span>
+            </div>
+            <div class="date-node active">
+                <span class="d-num">02</span>
+                <span class="d-txt">SAT</span>
+            </div>
+            <div class="date-node flight">
+                <span class="d-num">03</span>
+                <span class="d-txt">SUN</span>
+            </div>
+            <div class="date-node layover">
+                <span class="d-num">04</span>
+                <span class="d-txt">MON</span>
+            </div>
+        </nav>
+
+        <!-- Dynamic Trip Card -->
+        <main class="trip-display">
+            <div class="glass-card main-trip">
+                <div class="trip-top">
+                    <div class="pairing-info">
+                        <span class="tag">Pairing #ND-402</span>
+                        <h2>Delhi ➔ Dubai ➔ Delhi</h2>
+                    </div>
+                    <div class="layover-timer">
+                        <span class="timer-label">Layover Duration</span>
+                        <span class="timer-val">24h 45m</span>
+                    </div>
+                </div>
+
+                <div class="timeline">
+                    <!-- Leg 1 -->
+                    <div class="timeline-item">
+                        <div class="time">08:30</div>
+                        <div class="event-details">
+                            <div class="event-line"><strong>SF-401</strong> • A320 Neo</div>
+                            <div class="route">DEL <span class="arrow">➔</span> DXB</div>
+                        </div>
+                    </div>
+
+                    <!-- Layover Highlight -->
+                    <div class="timeline-item hotel-stay">
+                        <div class="hotel-pill">
+                            <span class="hotel-icon">🏨</span>
+                            <div class="hotel-text">
+                                <strong>Grand Hyatt Dubai</strong>
+                                <span>Pick-up: Wed, 09:15</span>
+                            </div>
+                            <div class="per-diem">+$85.00</div>
+                        </div>
+                    </div>
+
+                    <!-- Leg 2 -->
+                    <div class="timeline-item">
+                        <div class="time">12:15</div>
+                        <div class="event-details">
+                            <div class="event-line"><strong>SF-402</strong> • A320 Neo</div>
+                            <div class="route">DXB <span class="arrow">➔</span> DEL</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    </div>
+{% endblock %} 

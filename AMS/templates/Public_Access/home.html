@@ -1,0 +1,276 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block nav_titles %}
+    <ul class="nav-links">
+        <li><a href="#" class="active">Search Flights</a></li>
+        <li><a href="#">Destinations</a></li>
+        <li><a href="#">Special Offers</a></li>
+        <li><a href="#">About Us</a></li>
+    </ul>
+{% endblock %}
+
+
+{% block more_option %}
+    <div class="lang-dropdown">
+        <button class="lang-trigger">
+            <span class="globe-icon">🌐</span>
+            <span class="current-lang">EN</span>
+            <span class="arrow-down">▾</span>
+        </button>
+        <ul class="lang-menu">
+            <li><a href="?lang=en">English (EN)</a></li>
+            <li><a href="?lang=hi">हिन्दी (HI)</a></li>
+        </ul>
+    </div>
+{% endblock %}
+
+
+{% block login_option %}
+    <div class="auth-group">
+        <a href="{% url 'login' %}" class="btn-login">Login</a>
+        <a href="{% url 'register' %}" class="btn-register">Register</a>
+    </div>
+{% endblock %}
+    
+
+{% block hero %}
+    <section class="hero-section">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-container">
+        <div class="hero-text">
+            <h1>Fly Beyond Your <span class="highlight">Dreams</span></h1>
+            <p>Experience seamless travel with India's most trusted airline. Book your next journey in seconds.</p>
+        </div>
+
+        <div class="search-widget">
+            <form class="search-form">
+                <div class="input-group">
+                    <label>From</label>
+                    <input type="text" placeholder="Departure City" required>
+                </div>
+                
+                <div class="input-group">
+                    <label>To</label>
+                    <input type="text" placeholder="Arrival City" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Departure Date</label>
+                    <input type="date" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Passengers</label>
+                    <select>
+                        <option>1 Adult</option>
+                        <option>2 Adults</option>
+                        <option>Family (3+)</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-search">Search Flights</button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+
+{% block Destinations %}
+    <section class="destinations-section">
+    <div class="section-container">
+        <div class="section-header">
+            <h2>Explore Popular Destinations</h2>
+            <p>Handpicked escapes for your next grand adventure</p>
+        </div>
+
+        <div class="destinations-grid">
+            <div class="dest-card">
+                <div class="dest-image">
+                    <img src="{% static 'Images/Destinations/D1.png' %}" alt="Agra">
+                    <span class="price-tag">From ₹4,999</span>
+                </div>
+                <div class="dest-info">
+                    <h3>Agra, India</h3>
+                    <p>Experience the timeless beauty of the Taj Mahal.</p>
+                    <a href="#" class="btn-explore">View Flights</a>
+                </div>
+            </div>
+
+            <div class="dest-card">
+                <div class="dest-image">
+                    <img src="{% static 'Images/Destinations/D2.png' %}" alt="Goa">
+                    <span class="price-tag">From ₹3,499</span>
+                </div>
+                <div class="dest-info">
+                    <h3>Goa, India</h3>
+                    <p>Relax on sun-kissed beaches and vibrant shores.</p>
+                    <a href="#" class="btn-explore">View Flights</a>
+                </div>
+            </div>
+
+            <div class="dest-card">
+                <div class="dest-image">
+                    <img src="{% static 'Images/Destinations/D3.png' %}" alt="Kyoto">
+                    <span class="price-tag">From ₹24,999</span>
+                </div>
+                <div class="dest-info">
+                    <h3>Kyoto, Japan</h3>
+                    <p>Discover ancient temples and serene gardens.</p>
+                    <a href="#" class="btn-explore">View Flights</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block Marketings %}
+    <section class="marketing-section">
+        <div class="section-header">
+            <h2>More Interesting...</h2>
+        </div>
+    <div class="marketing-container">
+        <div class="mkt-card">
+            <div class="mkt-badge">Guaranteed</div>
+            <div class="mkt-icon-box blue-gradient">
+                <span>🏷️</span>
+            </div>
+            <h3>Best Price Policy</h3>
+            <p>Direct-to-airline pricing. No hidden convenience fees, just the lowest fares for your journey.</p>
+        </div>
+
+        <div class="mkt-card">
+            <div class="mkt-badge">Verified</div>
+            <div class="mkt-icon-box gold-gradient">
+                <span>🛡️</span>
+            </div>
+            <h3>Safe & Secure</h3>
+            <p>Highest safety standards with multi-layer encryption for all your booking transactions.</p>
+        </div>
+
+        <div class="mkt-card">
+            <div class="mkt-badge">Instant</div>
+            <div class="mkt-icon-box green-gradient">
+                <span>⚡</span>
+            </div>
+            <h3>Seamless Booking</h3>
+            <p>Skip the long forms. Our intelligent AI remembers your preferences for a 30-second checkout.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}
+{% block About %}
+    <section class="about-section" id="about">
+    <div class="about-container">
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1570710891163-6d3b5c47248b?auto=format&fit=crop&w=800&q=80" alt="SkyFlow Crew">
+            <div class="experience-badge">
+                <span class="years">15+</span>
+                <span class="text">Years of Excellence</span>
+            </div>
+        </div>
+
+        <div class="about-content">
+            <span class="sub-heading">Our Story</span>
+            <h2>Redefining the <span class="highlight">Future</span> of Air Travel</h2>
+            <p>
+                Founded with a vision to connect India to the world more efficiently, 
+                <strong>SkyFlow Airlines</strong> has grown from a regional carrier into a 
+                global leader in aviation technology and passenger comfort.
+            </p>
+            
+            <div class="stats-row">
+                <div class="stat-item">
+                    <h4>50+</h4>
+                    <p>Destinations</p>
+                </div>
+                <div class="stat-item">
+                    <h4>120+</h4>
+                    <p>Modern Fleet</p>
+                </div>
+                <div class="stat-item">
+                    <h4>10M+</h4>
+                    <p>Happy Travelers</p>
+                </div>
+            </div>
+
+            <p class="mission-text">
+                Our mission is simple: to provide safe, sustainable, and affordable air travel 
+                while leveraging cutting-edge technology to make every booking a breeze.
+            </p>
+
+            <a href="#" class="btn-about">Read Full Story</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block Help %}
+    <section class="help-section" id="help">
+    <div class="help-container">
+        <div class="help-header">
+            <span class="sub-heading">Support Center</span>
+            <h2>How can we <span class="highlight">help</span> you?</h2>
+            <p>Everything you need to know about booking, cancellations, and travel requirements.</p>
+        </div>
+
+        <div class="help-grid">
+            <div class="faq-group">
+                <details open>
+                    <summary>How do I book a flight with SkyFlow? <span class="icon"></span></summary>
+                    <div class="faq-content">
+                        <p>Simply use the search widget in the hero section. Enter your departure, destination, and dates. Once you select a flight, proceed to the checkout to confirm your booking.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>What is the baggage allowance for domestic flights? <span class="icon"></span></summary>
+                    <div class="faq-content">
+                        <p>For most domestic routes, we allow 15kg of check-in baggage and 7kg of cabin baggage. Premium members may be eligible for additional weight.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Can I cancel or reschedule my flight online? <span class="icon"></span></summary>
+                    <div class="faq-content">
+                        <p>Yes! Go to the "Manage Booking" section after logging in. You can modify your itinerary up to 24 hours before departure, subject to fare rules.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>What travel documents do I need for international travel? <span class="icon"></span></summary>
+                    <div class="faq-content">
+                        <p>You will need a valid passport (minimum 6 months validity) and the necessary visas for your destination. Please check the local embassy requirements before booking.</p>
+                    </div>
+                </details>
+            </div>
+
+            <div class="contact-card">
+                <h3>Still need help?</h3>
+                <p>Our dedicated support team is available 24/7 to assist you.</p>
+                <div class="contact-methods">
+                    <div class="method">
+                        <span>📞</span>
+                        <div>
+                            <strong>Call Us</strong>
+                            <p>1800-SKY-FLOW</p>
+                        </div>
+                    </div>
+                    <div class="method">
+                        <span>✉️</span>
+                        <div>
+                            <strong>Email</strong>
+                            <p>support@skyflow.com</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="btn-contact">Contact Support</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

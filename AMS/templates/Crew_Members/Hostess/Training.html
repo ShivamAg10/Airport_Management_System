@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block nav_titles %}
+    <ul class="nav-links">
+        <li><a href="{% url 'Hostess' %}">Home</a></li>
+        <li><a href="{% url 'Roster' %}">Roster</a></li>
+        <li><a href="{% url 'Manifest' %}">Manifest</a></li>        
+        <li><a href="{% url 'Training' %}" class="active">Training</a></li> 
+        <li><a href="{% url 'TakeLeave' %}">TakeLeave</a></li>
+        <li><a href="{% url 'Safety' %}">Safety</a></li>
+    </ul>
+{% endblock %}
+
+{% block login_option %}
+    <div class="nav-right">
+    <div class="profile-dropdown">
+        <button class="profile-trigger">
+            <div class="avatar-wrapper">
+            <div class="user-avatar">A</div>
+            <span class="status-indicator"></span> </div>
+        <div class="user-info-text">
+            <span class="user-name">Abhishek Kumar <i class="arrow-down"></i></span>
+            <span class="user-tier">Silver Tier Member</span>
+        </div>
+        </button>
+
+        <div class="profile-menu">
+            <div class="menu-header">
+                <div class="large-avatar">A</div>
+                <div class="detail-text">
+                    <h4>Abhishek Kumar</h4>
+                    <p>abhishek.k@email.com</p>
+                    <span class="id-badge">ID: SF-99201</span>
+                </div>
+            </div>
+            
+            <div class="menu-body">
+                <div class="personal-info-item">
+                    <span>Phone:</span>
+                    <strong>+91 98765 43210</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Nationality:</span>
+                    <strong>Indian</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Passport:</span>
+                    <strong>Z1234567</strong>
+                </div>
+            </div>
+
+            <div class="menu-footer">
+                <a href="{% url 'profile' %}" class="btn-edit">
+                    <span class="icon">⚙️</span> Edit Profile
+                </a>
+                <a href="/logout" class="btn-logout">Logout</a>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block more_option %}
+    <div class="lang-dropdown">
+        <button class="lang-trigger">
+            <span class="globe-icon">🌐</span>
+            <span class="current-lang">EN</span>
+            <span class="arrow-down">▾</span>
+        </button>
+        <ul class="lang-menu">
+            <li><a href="?lang=en">English (EN)</a></li>
+            <li><a href="?lang=hi">हिन्दी (HI)</a></li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block Hostess %}
+    <div class="training-container-crew">
+    <header class="training-glass-header">
+        <div class="training-info">
+            <h1>Training & Development</h1>
+            <p>Mastering the art of safety and hospitality.</p>
+        </div>
+        <div class="overall-progress">
+            <span class="pct">88%</span>
+            <div class="progress-circle"></div>
+            <span class="label">Course Completion</span>
+        </div>
+    </header>
+
+    <div class="training-main-grid">
+        <!-- Section 1: Critical Recurrent Training -->
+        <section class="critical-track">
+            <div class="card-title">
+                <h2>Regulatory Currency</h2>
+                <span class="warning-tag">Action Required</span>
+            </div>
+            
+            <div class="recurrent-card">
+                <div class="r-icon">🩹</div>
+                <div class="r-details">
+                    <h3>Aviation First Aid (Level 2)</h3>
+                    <p>Recurrent practical exam due in <strong>8 days</strong>.</p>
+                    <div class="slot-info">Slot: 14 May | 09:00 | Training Room 4B</div>
+                </div>
+                <button class="btn-confirm">Confirm Slot</button>
+            </div>
+        </section>
+
+        <!-- Section 2: Modular Learning Path -->
+        <section class="module-grid">
+            <!-- Module 1 -->
+            <div class="module-card completed">
+                <div class="module-status">✓</div>
+                <h3>Ditching & Sea Survival</h3>
+                <p>Emergency procedures for water landings.</p>
+                <span class="validity">Valid until Jan 2027</span>
+            </div>
+
+            <!-- Module 2 -->
+            <div class="module-card in-progress">
+                <div class="module-status">40%</div>
+                <h3>Premium Service: Wine & Dine</h3>
+                <p>Mastering international wine pairings and silver service.</p>
+                <button class="btn-resume">Resume Module</button>
+            </div>
+
+            <!-- Module 3 -->
+            <div class="module-card locked">
+                <div class="module-status">🔒</div>
+                <h3>Crisis Management</h3>
+                <p>Handling unruly passengers and security threats.</p>
+                <span class="lock-label">Unlocks after L2 First Aid</span>
+            </div>
+        </section>
+    </div>
+    </div>
+{% endblock %} 

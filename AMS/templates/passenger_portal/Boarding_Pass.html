@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block nav_titles %}
+    <ul class="nav-links">
+        <li><a href="{% url 'Booking_Flights' %}">Booking Flights</a></li>
+        <li><a href="{% url 'Search_Results' %}">Search Result</a></li>
+        <li><a href="{% url 'Flight_Status' %}">Flight Status</a></li>
+    </ul>
+{% endblock %}
+
+{% block more_option %}
+    <div class="lang-dropdown">
+        <button class="lang-trigger">
+            <span class="current-lang">Manage Trips</span>
+            <span class="arrow-down">▾</span>
+        </button>
+        <ul class="lang-menu">
+            <li><a href="{% url 'Check_In' %}">✅ Web Check-In</a></li>
+            <li><a href="{% url 'Booking_History' %}">🕒 Booking History</a></li>
+            <li><a href="{% url 'Cancellations' %}">❌ Cancellations</a></li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block login_option %}
+    <div class="nav-right">
+    <div class="profile-dropdown">
+        <button class="profile-trigger">
+            <div class="avatar-wrapper">
+            <div class="user-avatar">A</div>
+            <span class="status-indicator"></span> </div>
+        <div class="user-info-text">
+            <span class="user-name">Abhishek Kumar <i class="arrow-down"></i></span>
+            <span class="user-tier">Silver Tier Member</span>
+        </div>
+        </button>
+
+        <div class="profile-menu">
+            <div class="menu-header">
+                <div class="large-avatar">A</div>
+                <div class="detail-text">
+                    <h4>Abhishek Kumar</h4>
+                    <p>abhishek.k@email.com</p>
+                    <span class="id-badge">ID: SF-99201</span>
+                </div>
+            </div>
+            
+            <div class="menu-body">
+                <div class="personal-info-item">
+                    <span>Phone:</span>
+                    <strong>+91 98765 43210</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Nationality:</span>
+                    <strong>Indian</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Passport:</span>
+                    <strong>Z1234567</strong>
+                </div>
+            </div>
+
+            <div class="menu-footer">
+                <a href="{% url 'profile' %}" class="btn-edit">
+                    <span class="icon">⚙️</span> Edit Profile
+                </a>
+                <a href="/logout" class="btn-logout">Logout</a>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+
+{% block Boarding_Pass %}
+    <div class="ticket-container">
+    <div class="boarding-pass">
+        <div class="ticket-main">
+            <div class="ticket-header">
+                <div class="brand">
+                    <span class="logo-icon">SF</span>
+                    <span class="logo-text">SkyFlow Airlines</span>
+                </div>
+                <div class="flight-class">Economy Class</div>
+            </div>
+
+            <div class="ticket-body">
+                <div class="passenger-name">
+                    <label>Passenger</label>
+                    <div class="val">Abhishek Kumar</div>
+                </div>
+
+                <div class="flight-path">
+                    <div class="city">
+                        <span class="code">DEL</span>
+                        <span class="full">New Delhi</span>
+                    </div>
+                    <div class="flight-icon">✈</div>
+                    <div class="city">
+                        <span class="code">BOM</span>
+                        <span class="full">Mumbai</span>
+                    </div>
+                </div>
+
+                <div class="flight-info-grid">
+                    <div class="info-item">
+                        <label>Flight</label>
+                        <div class="val">SF-202</div>
+                    </div>
+                    <div class="info-item">
+                        <label>Date</label>
+                        <div class="val">26 APR 2026</div>
+                    </div>
+                    <div class="info-item">
+                        <label>Gate</label>
+                        <div class="val">A-12</div>
+                    </div>
+                    <div class="info-item">
+                        <label>Boarding</label>
+                        <div class="val">05:15 AM</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ticket-footer">
+                <div class="barcode">
+                    <div class="barcode-lines"></div>
+                    <span class="pnr-text">PNR: SF99201</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="ticket-stub">
+            <div class="stub-header">Boarding Pass</div>
+            <div class="stub-body">
+                <div class="stub-item">
+                    <label>Passenger</label>
+                    <strong>A. Kumar</strong>
+                </div>
+                <div class="stub-item">
+                    <label>Seat</label>
+                    <div class="seat-big">2B</div>
+                </div>
+                <div class="stub-item">
+                    <label>From/To</label>
+                    <strong>DEL / BOM</strong>
+                </div>
+                <div class="stub-qr">
+                    <div class="qr-box">QR</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="print-actions">
+    <button onclick="window.print()" class="btn-print">
+        <span class="icon">🖨️</span> 
+        <span class="text">Print Boarding Pass</span>
+    </button>
+    </div>
+{% endblock %}
+    

@@ -1,0 +1,251 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block nav_titles %}
+    <ul class="nav-links">
+        <li><a href="{% url 'Booking_Flights' %}">Booking Flights</a></li>
+        <li><a href="{% url 'Search_Results' %}" class="active">Search Result</a></li>
+        <li><a href="{% url 'Flight_Status' %}">Flight Status</a></li>
+    </ul>
+{% endblock %}
+
+{% block more_option %}
+    <div class="lang-dropdown">
+        <button class="lang-trigger">
+            <span class="current-lang">Manage Trips</span>
+            <span class="arrow-down">▾</span>
+        </button>
+        <ul class="lang-menu">
+            <li><a href="{% url 'Check_In' %}">✅ Web Check-In</a></li>
+            <li><a href="{% url 'Booking_History' %}">🕒 Booking History</a></li>
+            <li><a href="{% url 'Cancellations' %}">❌ Cancellations</a></li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block login_option %}
+    <div class="nav-right">
+    <div class="profile-dropdown">
+        <button class="profile-trigger">
+            <div class="avatar-wrapper">
+            <div class="user-avatar">A</div>
+            <span class="status-indicator"></span> </div>
+        <div class="user-info-text">
+            <span class="user-name">Abhishek Kumar <i class="arrow-down"></i></span>
+            <span class="user-tier">Silver Tier Member</span>
+        </div>
+        </button>
+
+        <div class="profile-menu">
+            <div class="menu-header">
+                <div class="large-avatar">A</div>
+                <div class="detail-text">
+                    <h4>Abhishek Kumar</h4>
+                    <p>abhishek.k@email.com</p>
+                    <span class="id-badge">ID: SF-99201</span>
+                </div>
+            </div>
+            
+            <div class="menu-body">
+                <div class="personal-info-item">
+                    <span>Phone:</span>
+                    <strong>+91 98765 43210</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Nationality:</span>
+                    <strong>Indian</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Passport:</span>
+                    <strong>Z1234567</strong>
+                </div>
+            </div>
+
+            <div class="menu-footer">
+                <a href="{% url 'profile' %}" class="btn-edit">
+                    <span class="icon">⚙️</span> Edit Profile
+                </a>
+                <a href="/logout" class="btn-logout">Logout</a>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block Search_Results %}
+    <div class="results-page-wrapper">
+        <aside class="filter-sidebar">
+            <form method="GET" id="filter-form">
+                <h3>Filter Results</h3>
+                <div class="filter-group">
+                    <div class="filter-header">
+                        <label for="price">Budget Per Person</label>
+                        <span class="price-indicator">Max: <strong id="price-val">₹25,000</strong></span>
+                    </div>
+                    <div class="range-slider-wrapper">
+                        <input type="range" 
+                            name="max_price" 
+                            id="price-slider" 
+                            min="2000" 
+                            max="50000" 
+                            step="500"
+                            value="25000" 
+                            oninput="updatePrice(this.value)">
+        
+                            <div class="range-labels">
+                                <span>₹2k</span>
+                                <span>₹50k</span>
+                            </div>
+                    </div>
+                </div>
+
+                <input type="hidden" name="time_of_day" id="time-input" value="{{ request.GET.time_of_day }}">
+
+                <div class="filter-group">
+                    <label>Departure Time</label>
+                    <input type="hidden" name="time_of_day" id="time-input" value="">
+
+                        <div class="time-tile-grid">
+                            <button type="button" class="time-tile" onclick="selectTime(this, 'morning')">
+                                <span class="tile-icon">🌅</span>
+                                <span class="tile-label">Morning</span>
+                                <span class="tile-desc">Before 11 AM</span>
+                            </button>
+
+                            <button type="button" class="time-tile" onclick="selectTime(this, 'afternoon')">
+                                <span class="tile-icon">☀️</span>
+                                <span class="tile-label">Afternoon</span>
+                                <span class="tile-desc">11 AM - 5 PM</span>
+                            </button>
+
+                            <button type="button" class="time-tile" onclick="selectTime(this, 'evening')">
+                                <span class="tile-icon">🌙</span>
+                                <span class="tile-label">Evening</span>
+                                <span class="tile-desc">After 5 PM</span>
+                            </button>
+                        </div>
+                </div>
+
+                <div class="filter-action-area">
+                    <button type="submit" class="btn-apply">
+                        <span class="btn-text">Apply Filters</span>
+                        <span class="btn-icon">→</span>
+                    </button>
+    
+                    <button type="reset" class="btn-reset">
+                        Clear All
+                    </button>
+                </div>
+            </form>
+        </aside>
+
+        <main class="results-container">
+            <div class="results-header">
+                <span>Found 12 Flights for <strong>Delhi ➔ Mumbai</strong></span>
+                <div class="sort-container">
+                    <label for="sort-select">Sort by:</label>
+                    <div class="custom-select-wrapper">
+                        <select id="sort-select" class="sort-dropdown">
+                            <option value="cheapest">Price: Lowest first</option>
+                            <option value="fastest">Duration: Shortest first</option>
+                            <option value="earliest">Departure: Earliest first</option>
+                            <option value="latest">Departure: Latest first</option>
+                        </select>
+                        <span class="custom-arrow">▾</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flight-card">
+                <div class="airline-info">
+                    <div class="airline-logo">SF</div>
+                        <div>
+                            <span class="airline-name">SkyFlow Air</span>
+                            <span class="flight-no">SF-202</span>
+                        </div>
+                    </div>
+
+                    <div class="flight-duration">
+                        <div class="time-block">
+                            <strong>06:00</strong>
+                            <span>DEL</span>
+                        </div>
+                        <div class="duration-line">
+                            <span>2h 15m</span>
+                            <div class="line">
+                            </div>
+                            <span class="non-stop">Non-stop</span>
+                        </div>
+                        <div class="time-block">
+                            <strong>08:15</strong>
+                            <span>BOM</span>
+                        </div>
+                    </div>
+
+                    <div class="flight-price-action">
+                        <span class="price">₹4,599</span>
+                        <button class="btn-book-now">Select Flight</button>
+                    </div>
+                </div>
+
+                <div class="flight-card delayed">
+                    <div class="airline-info">
+                        <div class="airline-logo">SF</div>
+                            <div>
+                                <span class="airline-name">SkyFlow Air</span>
+                                <span class="flight-no">SF-501</span>
+                            </div>
+                        </div>
+
+                        <div class="flight-duration">
+                            <div class="time-block">
+                                <strong>14:30</strong>
+                                <span>DEL</span>
+                            </div>
+                            <div class="duration-line">
+                                <span class="delay-tag">Delayed 30m</span>
+                                <div class="line"></div>
+                                <span>Non-stop</span>
+                            </div>
+                            <div class="time-block">
+                                <strong>16:45</strong>
+                                <span>BOM</span>
+                            </div>
+                        </div>
+
+                        <div class="flight-price-action">
+                            <span class="price">₹3,299</span>
+                            <button class="btn-book-now">Select Flight</button>
+                        </div>
+                </div>
+        </main>
+    </div>
+    <script>
+        function updatePrice(val) {
+        // Format the number with Indian Commas (e.g., 25,000)
+        const formattedPrice = new Intl.NumberFormat('en-IN', {
+            style: 'currency',
+            currency: 'INR',
+            maximumFractionDigits: 0
+        }).format(val);
+    
+        document.getElementById('price-val').innerText = formattedPrice;
+        }
+    </script>
+    <script>
+        function selectTime(element, value) {
+        // 1. Remove 'active' class from all tiles in the grid
+        const tiles = document.querySelectorAll('.time-tile');
+        tiles.forEach(t => t.classList.remove('active'));
+
+        // 2. Add 'active' class to the clicked tile
+        element.classList.add('active');
+
+        // 3. Update the hidden input value for the form submission
+        document.getElementById('time-input').value = value;
+    
+        // Optional: Auto-submit form on selection
+        document.getElementById('filter-form').submit();
+        }
+    </script>
+{% endblock %}

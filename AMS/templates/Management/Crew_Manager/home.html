@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block nav_titles %}
+    <ul class="nav-links">
+        <li><a href="{% url 'Crew_Manager' %}" class="active">Home</a></li>
+        <li><a href="{% url 'MissionHub' %}">MissionHub</a></li>
+        <li><a href="{% url 'PilotDeck' %}">PilotDeck</a></li>
+        <li><a href="{% url 'HostessDeck' %}">HostessDeck</a></li>
+        <li><a href="{% url 'DutyRoster' %}">DutyRoster</a></li>
+        <li><a href="{% url 'LeaveDesk' %}">LeaveDesk</a></li>
+    </ul>
+{% endblock %}
+
+{% block login_option %}
+    <div class="nav-right">
+    <div class="profile-dropdown">
+        <button class="profile-trigger">
+            <div class="avatar-wrapper">
+            <div class="user-avatar">A</div>
+            <span class="status-indicator"></span> </div>
+        <div class="user-info-text">
+            <span class="user-name">Abhishek Kumar <i class="arrow-down"></i></span>
+            <span class="user-tier">Silver Tier Member</span>
+        </div>
+        </button>
+
+        <div class="profile-menu">
+            <div class="menu-header">
+                <div class="large-avatar">A</div>
+                <div class="detail-text">
+                    <h4>Abhishek Kumar</h4>
+                    <p>abhishek.k@email.com</p>
+                    <span class="id-badge">ID: SF-99201</span>
+                </div>
+            </div>
+            
+            <div class="menu-body">
+                <div class="personal-info-item">
+                    <span>Phone:</span>
+                    <strong>+91 98765 43210</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Nationality:</span>
+                    <strong>Indian</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Passport:</span>
+                    <strong>Z1234567</strong>
+                </div>
+            </div>
+
+            <div class="menu-footer">
+                <a href="{% url 'profile' %}" class="btn-edit">
+                    <span class="icon">⚙️</span> Edit Profile
+                </a>
+                <a href="/logout" class="btn-logout">Logout</a>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block more_option %}
+    <div class="lang-dropdown">
+        <button class="lang-trigger">
+            <span class="globe-icon">🌐</span>
+            <span class="current-lang">EN</span>
+            <span class="arrow-down">▾</span>
+        </button>
+        <ul class="lang-menu">
+            <li><a href="?lang=en">English (EN)</a></li>
+            <li><a href="?lang=hi">हिन्दी (HI)</a></li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block Crew_Management %}
+    <div class="crew-home-viewport">
+    <!-- Top HUD: Personnel Readiness Ribbon -->
+    <section class="readiness-ribbon">
+        <div class="hud-glass-card">
+            <span class="label">Total Crew Force</span>
+            <div class="value neon-silver">842 <small>Active</small></div>
+            <p class="sub-text">312 Pilots | 530 Cabin Crew</p>
+        </div>
+        <div class="hud-glass-card">
+            <span class="label">In the Air</span>
+            <div class="value neon-cyan">124 <small>Staff</small></div>
+            <div class="mini-progress-bar"><div class="fill" style="width: 75%"></div></div>
+        </div>
+        <div class="hud-glass-card">
+            <span class="label">Compliance Score</span>
+            <div class="value neon-green">98.2%</div>
+            <p class="sub-text">Certifications Valid</p>
+        </div>
+        <div class="hud-glass-card">
+            <span class="label">Pending Leaves</span>
+            <div class="value neon-red">12</div>
+            <p class="sub-text">Awaiting Manager Approval</p>
+        </div>
+    </section>
+
+    <!-- Main Grid: Assignments & Alerts -->
+    <div class="crew-main-grid">
+        <!-- Live Assignment Map / Schedule View -->
+        <div class="assignment-map-glass">
+            <div class="map-header">
+                <h3>Global Crew Distribution</h3>
+                <div class="map-controls">
+                    <span class="status-indicator pulse">● LIVE SYNC</span>
+                </div>
+            </div>
+            <div id="crew-distribution-view">
+                <!-- Placeholder for dynamic map or timeline -->
+                <div class="wireframe-overlay"></div>
+            </div>
+        </div>
+
+        <!-- Manager Tactical Actions -->
+        <aside class="crew-action-sidebar">
+            <div class="glass-card-simple">
+                <h3>Quick Management</h3>
+                <div class="action-tile-grid">
+                    <a href="/crew-assign/" class="tile-item">
+                        <span class="icon">🧩</span>
+                        <span>Assign Crew</span>
+                    </a>
+                    <a href="/pilot-mgmt/" class="tile-item">
+                        <span class="icon">👨‍✈️</span>
+                        <span>Pilot Database</span>
+                    </a>
+                    <a href="/hostess-mgmt/" class="tile-item">
+                        <span class="icon">👩‍💼</span>
+                        <span>Hostess Fleet</span>
+                    </a>
+                    <a href="/approvals/" class="tile-item">
+                        <span class="icon">📝</span>
+                        <span>Leave Desk</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Urgent Personnel Alert -->
+            <div class="alert-box-silver warning">
+                <div class="alert-header">
+                    <span class="warning-icon">⚠️</span>
+                    <strong>Certification Warning</strong>
+                </div>
+                <p>Capt. Arjun Mehra's <strong>B787 License</strong> expires in 3 days. Action required.</p>
+                <button class="btn-resolve">View Profile</button>
+            </div>
+        </aside>
+    </div>
+    </div>
+{% endblock %} 

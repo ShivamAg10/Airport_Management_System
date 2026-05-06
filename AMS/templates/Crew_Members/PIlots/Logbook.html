@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block nav_titles %}
+    <ul class="nav-links">
+        <li><a href="{% url 'pilot' %}">Home</a></li>
+        <li><a href="{% url 'Pilot_Roster' %}">Roster</a></li>
+        <li><a href="{% url 'Logbook' %}" class="active">LogBook</a></li>
+        <li><a href="{% url 'Documents' %}">Documents</a></li>
+        <li><a href="{% url 'Simulations' %}">Simulations</a></li>
+        <li><a href="{% url 'Pilot_TakeLeave' %}">TakeLeave</a></li>
+        <li><a href="{% url 'Pilot_Safety' %}">Safety</a></li>
+    </ul>
+{% endblock %}
+
+{% block login_option %}
+    <div class="nav-right">
+    <div class="profile-dropdown">
+        <button class="profile-trigger">
+            <div class="avatar-wrapper">
+            <div class="user-avatar">A</div>
+            <span class="status-indicator"></span> </div>
+        <div class="user-info-text">
+            <span class="user-name">Abhishek Kumar <i class="arrow-down"></i></span>
+            <span class="user-tier">Silver Tier Member</span>
+        </div>
+        </button>
+
+        <div class="profile-menu">
+            <div class="menu-header">
+                <div class="large-avatar">A</div>
+                <div class="detail-text">
+                    <h4>Abhishek Kumar</h4>
+                    <p>abhishek.k@email.com</p>
+                    <span class="id-badge">ID: SF-99201</span>
+                </div>
+            </div>
+            
+            <div class="menu-body">
+                <div class="personal-info-item">
+                    <span>Phone:</span>
+                    <strong>+91 98765 43210</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Nationality:</span>
+                    <strong>Indian</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Passport:</span>
+                    <strong>Z1234567</strong>
+                </div>
+            </div>
+
+            <div class="menu-footer">
+                <a href="{% url 'profile' %}" class="btn-edit">
+                    <span class="icon">⚙️</span> Edit Profile
+                </a>
+                <a href="/logout" class="btn-logout">Logout</a>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block more_option %}
+    <div class="lang-dropdown">
+        <button class="lang-trigger">
+            <span class="globe-icon">🌐</span>
+            <span class="current-lang">EN</span>
+            <span class="arrow-down">▾</span>
+        </button>
+        <ul class="lang-menu">
+            <li><a href="?lang=en">English (EN)</a></li>
+            <li><a href="?lang=hi">हिन्दी (HI)</a></li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block Pilots %}
+    <div class="logbook-container">
+    <header class="logbook-header">
+        <div class="title-area">
+            <h1>Flight Logbook</h1>
+            <p>Official record for License #SF-99283</p>
+        </div>
+        <div class="log-actions">
+            <button class="btn-filter">📅 Filter Date</button>
+            <button class="btn-export">Export PDF</button>
+        </div>
+    </header>
+
+    <!-- Experience Summary Cards -->
+    <section class="experience-ribbon">
+        <div class="exp-card">
+            <span class="label">Total Experience</span>
+            <div class="val">1,420:45</div>
+        </div>
+        {% comment %} <div class="exp-card">
+            <span class="label">Multi-Engine (PIC)</span>
+            <div class="val">840:20</div>
+        </div> {% endcomment %}
+        <div class="exp-card">
+            <span class="label">Night Flying</span>
+            <div class="val">312:15</div>
+        </div>
+        {% comment %} <div class="exp-card">
+            <span class="label">Instrument Time</span>
+            <div class="val">145:10</div>
+        </div> {% endcomment %}
+    </section>
+
+    <!-- Detailed Log Table -->
+    <main class="log-table-wrapper">
+        <table class="log-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Flight / Tail</th>
+                    <th>Route</th>
+                    <th>Departure</th>
+                    <th>Arrival</th>
+                    <th>Total Time</th>
+                    <th>Landings</th>
+                    <th>Remarks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>04 MAY 26</td>
+                    <td><strong>SF-112</strong> <br> <small>VT-SFJ</small></td>
+                    <td>BLR ➔ DEL</td>
+                    <td>09:15</td>
+                    <td>11:45</td>
+                    <td>02:30</td>
+                    <td>1 (D)</td>
+                    <td>Normal ops. Heavy rain on arrival.</td>
+                </tr>
+                <tr>
+                    <td>02 MAY 26</td>
+                    <td><strong>SF-401</strong> <br> <small>VT-SFL</small></td>
+                    <td>DEL ➔ DXB</td>
+                    <td>14:00</td>
+                    <td>18:15</td>
+                    <td>04:15</td>
+                    <td>1 (N)</td>
+                    <td>Night landing at DXB.</td>
+                </tr>
+                <!-- More rows... -->
+            </tbody>
+        </table>
+    </main>
+    </div>
+{% endblock %} 

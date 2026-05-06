@@ -1,0 +1,165 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block nav_titles %}
+    <ul class="nav-links">
+        <li><a href="{% url 'Flight_Manager' %}">Home</a></li>
+        <li><a href="{% url 'FlightInfo' %}" class="active">FlightInfo</a></li>
+        <li><a href="{% url 'PlaneInfo' %}">PlaneInfo</a></li>
+        <li><a href="{% url 'AircraftMaintenance' %}">AircraftMaintenance</a></li>
+    </ul>
+{% endblock %}
+
+{% block login_option %}
+    <div class="nav-right">
+    <div class="profile-dropdown">
+        <button class="profile-trigger">
+            <div class="avatar-wrapper">
+            <div class="user-avatar">A</div>
+            <span class="status-indicator"></span> </div>
+        <div class="user-info-text">
+            <span class="user-name">Abhishek Kumar <i class="arrow-down"></i></span>
+            <span class="user-tier">Silver Tier Member</span>
+        </div>
+        </button>
+
+        <div class="profile-menu">
+            <div class="menu-header">
+                <div class="large-avatar">A</div>
+                <div class="detail-text">
+                    <h4>Abhishek Kumar</h4>
+                    <p>abhishek.k@email.com</p>
+                    <span class="id-badge">ID: SF-99201</span>
+                </div>
+            </div>
+            
+            <div class="menu-body">
+                <div class="personal-info-item">
+                    <span>Phone:</span>
+                    <strong>+91 98765 43210</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Nationality:</span>
+                    <strong>Indian</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Passport:</span>
+                    <strong>Z1234567</strong>
+                </div>
+            </div>
+
+            <div class="menu-footer">
+                <a href="{% url 'profile' %}" class="btn-edit">
+                    <span class="icon">⚙️</span> Edit Profile
+                </a>
+                <a href="/logout" class="btn-logout">Logout</a>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block more_option %}
+    <div class="lang-dropdown">
+        <button class="lang-trigger">
+            <span class="globe-icon">🌐</span>
+            <span class="current-lang">EN</span>
+            <span class="arrow-down">▾</span>
+        </button>
+        <ul class="lang-menu">
+            <li><a href="?lang=en">English (EN)</a></li>
+            <li><a href="?lang=hi">हिन्दी (HI)</a></li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block Flight_Management %}
+    <div class="command-center-bg">
+    <div class="scanner-grid"></div>
+
+    <div class="registration-layout">
+        <nav class="side-hud">
+            <div class="system-id">AMS v2.0</div>
+            <div class="nav-links">
+                <div class="link">01 FLEET REG</div>
+                <div class="link active">02 FLIGHT SCHED</div>
+                <div class="link disabled">03 ROUTE ARCH</div>
+            </div>
+        </nav>
+
+        <main class="main-console">
+            <header class="console-header">
+                <div class="breadcrumb">FLIGHT MANAGER // OPERATIONS // NEW_SCHEDULE</div>
+                <h1>SCHEDULE <span class="cyan-glow">NEW MISSION</span></h1>
+            </header>
+
+            <form class="tactical-form">
+                <!-- Section 1: Route & Asset -->
+                <div class="form-module">
+                    <h3 class="module-title">I. SECTOR & AIRCRAFT ASSIGNMENT</h3>
+                    <div class="field-group">
+                        <div class="input-container">
+                            <label>SELECT ROUTE (SECTOR)</label>
+                            <select name="route_id">
+                                <option>DEL ➔ DXB (Sector #001)</option>
+                                <option>BOM ➔ SIN (Sector #042)</option>
+                                <option>LHR ➔ JFK (Sector #089)</option>
+                            </select>
+                        </div>
+                        <div class="input-container">
+                            <label>ASSIGN TAIL (AVAILABLE FLEET)</label>
+                            <select name="tail_no">
+                                <option>VT-ALX (Airbus A320 Neo)</option>
+                                <option>VT-BOM (Boeing 737 Max)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 2: Timing -->
+                <div class="form-module">
+                    <h3 class="module-title">II. TEMPORAL PARAMETERS</h3>
+                    <div class="field-group three-col">
+                        <div class="input-container">
+                            <label>DEPARTURE (STD)</label>
+                            <input type="datetime-local">
+                        </div>
+                        <div class="input-container">
+                            <label>ARRIVAL (STA)</label>
+                            <input type="datetime-local">
+                        </div>
+                        <div class="input-container">
+                            <label>FLIGHT NUMBER</label>
+                            <input type="text" placeholder="SF-XXX">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="console-footer">
+                    <button type="button" class="btn-secondary">BACK TO FLEET</button>
+                    <button type="submit" class="btn-primary">CONFIRM SCHEDULE</button>
+                </div>
+            </form>
+        </main>
+
+        <!-- Dynamic Timeline Sidebar -->
+        {% comment %} <aside class="live-status-panel">
+            <div class="status-card">
+                <div class="status-header">CONFLICT CHECKER</div>
+                <div class="timeline-visual">
+                    <div class="timeline-slot reserved">08:00 - BUSY</div>
+                    <div class="timeline-slot active">10:00 - NEW SLOT</div>
+                    <div class="timeline-slot available">14:00 - FREE</div>
+                    <div class="time-pointer"></div>
+                </div>
+                <div class="data-readout">
+                    <div class="readout-row"><span>STATUS:</span> <span class="green-text">NO_CONFLICT</span></div>
+                    <div class="readout-row"><span>EST_FUEL:</span> <span>14.2T</span></div>
+                    <div class="readout-row"><span>GATE:</span> <span class="cyan-text">T3-42B</span></div>
+                </div>
+            </div>
+        </aside> {% endcomment %}
+    </div>
+    </div>
+{% endblock %} 

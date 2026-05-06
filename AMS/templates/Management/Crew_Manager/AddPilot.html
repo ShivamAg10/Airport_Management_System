@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block nav_titles %}
+    <ul class="nav-links">
+        <li><a href="{% url 'Crew_Manager' %}">Home</a></li>
+        <li><a href="{% url 'MissionHub' %}">MissionHub</a></li>
+        <li><a href="{% url 'PilotDeck' %}" class="active">PilotDeck</a></li>
+        <li><a href="{% url 'HostessDeck' %}">HostessDeck</a></li>
+        <li><a href="{% url 'DutyRoster' %}">DutyRoster</a></li>
+        <li><a href="{% url 'LeaveDesk' %}">LeaveDesk</a></li>
+    </ul>
+{% endblock %}
+
+{% block login_option %}
+    <div class="nav-right">
+    <div class="profile-dropdown">
+        <button class="profile-trigger">
+            <div class="avatar-wrapper">
+            <div class="user-avatar">A</div>
+            <span class="status-indicator"></span> </div>
+        <div class="user-info-text">
+            <span class="user-name">Abhishek Kumar <i class="arrow-down"></i></span>
+            <span class="user-tier">Silver Tier Member</span>
+        </div>
+        </button>
+
+        <div class="profile-menu">
+            <div class="menu-header">
+                <div class="large-avatar">A</div>
+                <div class="detail-text">
+                    <h4>Abhishek Kumar</h4>
+                    <p>abhishek.k@email.com</p>
+                    <span class="id-badge">ID: SF-99201</span>
+                </div>
+            </div>
+            
+            <div class="menu-body">
+                <div class="personal-info-item">
+                    <span>Phone:</span>
+                    <strong>+91 98765 43210</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Nationality:</span>
+                    <strong>Indian</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Passport:</span>
+                    <strong>Z1234567</strong>
+                </div>
+            </div>
+
+            <div class="menu-footer">
+                <a href="{% url 'profile' %}" class="btn-edit">
+                    <span class="icon">⚙️</span> Edit Profile
+                </a>
+                <a href="/logout" class="btn-logout">Logout</a>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block more_option %}
+    <div class="lang-dropdown">
+        <button class="lang-trigger">
+            <span class="globe-icon">🌐</span>
+            <span class="current-lang">EN</span>
+            <span class="arrow-down">▾</span>
+        </button>
+        <ul class="lang-menu">
+            <li><a href="?lang=en">English (EN)</a></li>
+            <li><a href="?lang=hi">हिन्दी (HI)</a></li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block Crew_Management %}
+    <div class="registration-viewport">
+    <div class="grid-overlay"></div>
+    
+    <div class="content-wrapper">
+        <header class="reg-header">
+            <div class="status-badge">SECURE_PERSONNEL_ENTRY // AUTH_04</div>
+            <h1>Register <span class="silver-text">New Aviator</span></h1>
+            <a href="/pilot-mgmt/" class="btn-abort">✕ CANCEL ENTRY</a>
+        </header>
+
+        <main class="form-container glass-canvas">
+            <!-- The Master Form Tag -->
+            <form method="POST" class="dashing-form">
+                {% csrf_token %}
+                
+                <!-- Section I: Personal & Rank -->
+                <div class="form-section">
+                    <h3 class="section-tag">01. Professional Identity</h3>
+                    <div class="input-grid">
+                        <div class="input-block">
+                            <label for="full_name">Full Legal Name</label>
+                            <input type="text" id="full_name" name="name" placeholder="Captain Arjun Mehra" required>
+                        </div>
+                        <div class="input-block">
+                            <label for="rank">Rank / Designation</label>
+                            <select id="rank" name="rank">
+                                <option value="CPT">Captain (Commander)</option>
+                                <option value="FO">First Officer</option>
+                                <option value="SFO">Senior First Officer</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section II: Technical Credentials -->
+                <div class="form-section">
+                    <h3 class="section-tag">02. Licensing & Compliance</h3>
+                    <div class="input-grid">
+                        <div class="input-block">
+                            <label for="license">ATPL License Number</label>
+                            <input type="text" id="license" name="license_no" placeholder="e.g., IN-99283" required>
+                        </div>
+                        <div class="input-block">
+                            <label for="medical">Medical Expiry Date</label>
+                            <input type="date" id="medical" name="medical_expiry" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section III: Type Ratings -->
+                <div class="form-section">
+                    <h3 class="section-tag">03. Aircraft Certifications</h3>
+                    <div class="certification-grid">
+                        <div class="check-item">
+                            <input type="checkbox" id="a320" name="ratings" value="A320">
+                            <label for="a320">Airbus A320 Neo</label>
+                        </div>
+                        <div class="check-item">
+                            <input type="checkbox" id="b737" name="ratings" value="B737">
+                            <label for="b737">Boeing 737 Max</label>
+                        </div>
+                        <div class="check-item">
+                            <input type="checkbox" id="b787" name="ratings" value="B787">
+                            <label for="b787">Boeing 787 Dreamliner</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-footer">
+                    <button type="reset" class="btn-secondary">RESET FORM</button>
+                    <button type="submit" class="btn-primary-silver">INITIALIZE PILOT PROFILE</button>
+                </div>
+            </form>
+        </main>
+    </div>
+    </div>
+{% endblock %} 

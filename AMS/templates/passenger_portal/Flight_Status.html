@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block nav_titles %}
+    <ul class="nav-links">
+        <li><a href="{% url 'Booking_Flights' %}">Booking Flights</a></li>
+        <li><a href="{% url 'Search_Results' %}">Search Result</a></li>
+        <li><a href="{% url 'Flight_Status' %}" class="active">Flight Status</a></li>
+    </ul>
+{% endblock %}
+
+{% block more_option %}
+    <div class="lang-dropdown">
+        <button class="lang-trigger">
+            <span class="current-lang">Manage Trips</span>
+            <span class="arrow-down">▾</span>
+        </button>
+        <ul class="lang-menu">
+            <li><a href="{% url 'Check_In' %}">✅ Web Check-In</a></li>
+            <li><a href="{% url 'Booking_History' %}">🕒 Booking History</a></li>
+            <li><a href="{% url 'Cancellations' %}">❌ Cancellations</a></li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block login_option %}
+    <div class="nav-right">
+    <div class="profile-dropdown">
+        <button class="profile-trigger">
+            <div class="avatar-wrapper">
+            <div class="user-avatar">A</div>
+            <span class="status-indicator"></span> </div>
+        <div class="user-info-text">
+            <span class="user-name">Abhishek Kumar <i class="arrow-down"></i></span>
+            <span class="user-tier">Silver Tier Member</span>
+        </div>
+        </button>
+
+        <div class="profile-menu">
+            <div class="menu-header">
+                <div class="large-avatar">A</div>
+                <div class="detail-text">
+                    <h4>Abhishek Kumar</h4>
+                    <p>abhishek.k@email.com</p>
+                    <span class="id-badge">ID: SF-99201</span>
+                </div>
+            </div>
+            
+            <div class="menu-body">
+                <div class="personal-info-item">
+                    <span>Phone:</span>
+                    <strong>+91 98765 43210</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Nationality:</span>
+                    <strong>Indian</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Passport:</span>
+                    <strong>Z1234567</strong>
+                </div>
+            </div>
+
+            <div class="menu-footer">
+                <a href="{% url 'profile' %}" class="btn-edit">
+                    <span class="icon">⚙️</span> Edit Profile
+                </a>
+                <a href="/logout" class="btn-logout">Logout</a>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+
+{% block Flight_Status %}
+    <div class="status-page-container">
+    <div class="status-search-box">
+        <h3>Track Live Flight Status</h3>
+        <form class="status-form">
+            <div class="status-input-group">
+                <input type="text" placeholder="Enter Flight No. (e.g. SF-202)" class="status-input">
+                <span class="input-divider">OR</span>
+                <input type="text" placeholder="Departure City" class="status-input">
+                <input type="text" placeholder="Arrival City" class="status-input">
+            </div>
+            <button type="submit" class="btn-track">Track Flight</button>
+        </form>
+    </div>
+
+    <div class="status-result-card">
+        <div class="card-top">
+            <div class="flight-identity">
+                <div class="airline-logo">SF</div>
+                <div>
+                    <h4>SkyFlow Air SF-202</h4>
+                    <p>Sunday, 26 April 2026</p>
+                </div>
+            </div>
+            <div class="status-badge on-time">On Time</div>
+        </div>
+
+        <div class="status-timeline">
+            <div class="timeline-point">
+                <span class="city-code">DEL</span>
+                <span class="time">06:00 AM</span>
+                <span class="label">Terminal 3</span>
+            </div>
+
+            <div class="timeline-track">
+                <div class="track-line">
+                    <div class="progress-fill" style="width: 5%;"></div>
+                    <span class="plane-icon" style="left: 5%;">✈</span>
+                </div>
+                <span class="duration-text">2h 15m Total Duration</span>
+            </div>
+
+            <div class="timeline-point">
+                <span class="city-code">BOM</span>
+                <span class="time">08:15 AM</span>
+                <span class="label">Terminal 2</span>
+            </div>
+        </div>
+
+        <div class="status-details-grid">
+            <div class="detail-item">
+                <span>Gate</span>
+                <strong>A-12</strong>
+            </div>
+            <div class="detail-item">
+                <span>Baggage Belt</span>
+                <strong>Belt 04</strong>
+            </div>
+            <div class="detail-item">
+                <span>Aircraft</span>
+                <strong>Airbus A320</strong>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}

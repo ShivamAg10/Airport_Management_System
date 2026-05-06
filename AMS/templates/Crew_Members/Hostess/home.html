@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block nav_titles %}
+    <ul class="nav-links">
+        <li><a href="{% url 'Hostess' %}" class="active">Home</a></li>
+        <li><a href="{% url 'Roster' %}">Roster</a></li>
+        <li><a href="{% url 'Manifest' %}">Manifest</a></li>        
+        <li><a href="{% url 'Training' %}">Training</a></li> 
+        <li><a href="{% url 'TakeLeave' %}">TakeLeave</a></li>
+        <li><a href="{% url 'Safety' %}">Safety</a></li>
+    </ul>
+{% endblock %}
+
+{% block login_option %}
+    <div class="nav-right">
+    <div class="profile-dropdown">
+        <button class="profile-trigger">
+            <div class="avatar-wrapper">
+            <div class="user-avatar">A</div>
+            <span class="status-indicator"></span> </div>
+        <div class="user-info-text">
+            <span class="user-name">Abhishek Kumar <i class="arrow-down"></i></span>
+            <span class="user-tier">Silver Tier Member</span>
+        </div>
+        </button>
+
+        <div class="profile-menu">
+            <div class="menu-header">
+                <div class="large-avatar">A</div>
+                <div class="detail-text">
+                    <h4>Abhishek Kumar</h4>
+                    <p>abhishek.k@email.com</p>
+                    <span class="id-badge">ID: SF-99201</span>
+                </div>
+            </div>
+            
+            <div class="menu-body">
+                <div class="personal-info-item">
+                    <span>Phone:</span>
+                    <strong>+91 98765 43210</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Nationality:</span>
+                    <strong>Indian</strong>
+                </div>
+                <div class="personal-info-item">
+                    <span>Passport:</span>
+                    <strong>Z1234567</strong>
+                </div>
+            </div>
+
+            <div class="menu-footer">
+                <a href="{% url 'profile' %}" class="btn-edit">
+                    <span class="icon">⚙️</span> Edit Profile
+                </a>
+                <a href="/logout" class="btn-logout">Logout</a>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block more_option %}
+    <div class="lang-dropdown">
+        <button class="lang-trigger">
+            <span class="globe-icon">🌐</span>
+            <span class="current-lang">EN</span>
+            <span class="arrow-down">▾</span>
+        </button>
+        <ul class="lang-menu">
+            <li><a href="?lang=en">English (EN)</a></li>
+            <li><a href="?lang=hi">हिन्दी (HI)</a></li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block Hostess %}
+    <div class="crew-portal">
+    <!-- Top Ribbon: Service Stats -->
+    <header class="stats-ribbon">
+        <div class="stat-card">
+            <span class="label">Flights This Month</span>
+            <div class="value">22 <small>SECTORS</small></div>
+        </div>
+        <div class="stat-card">
+            <span class="label">Avg Service Rating</span>
+            <div class="value">4.8 <small>/ 5.0</small></div>
+            <div class="progress-track"><div class="bar" style="width: 96%; background: #22c55e;"></div></div>
+        </div>
+        <div class="stat-card warning">
+            <span class="label">First Aid Recurrent</span>
+            <div class="value">08 <small>DAYS LEFT</small></div>
+        </div>
+    </header>
+
+    <div class="dashboard-grid">
+        <!-- Section 1: Active Mission (Cabin Focus) -->
+        <section class="duty-column">
+            <div class="header-row">
+                <h2>Active Briefing</h2>
+                <span class="status-badge">Pre-Flight</span>
+            </div>
+
+            <div class="mission-card-crew">
+                <div class="mission-top">
+                    <div class="sector">
+                        <strong>DEL ➔ BOM</strong>
+                        <span class="flight-no">SF-202</span>
+                    </div>
+                    <div class="load-factor">
+                        <span class="total-pax">174 / 180</span>
+                        <small>Seats Occupied</small>
+                    </div>
+                </div>
+
+                <div class="service-highlights">
+                    <div class="svc-item">
+                        <span class="svc-label">Special Meals</span>
+                        <span class="svc-val">12</span>
+                    </div>
+                    <div class="svc-item">
+                        <span class="svc-label">Wheelchairs</span>
+                        <span class="svc-val">02</span>
+                    </div>
+                    <div class="svc-item">
+                        <span class="svc-label">VIP (Gold+)</span>
+                        <span class="svc-val">05</span>
+                    </div>
+                </div>
+
+                <div class="mission-actions">
+                    <button class="btn-primary">View Manifest</button>
+                    <button class="btn-secondary">Galley Prep</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Crew Complement (Who are you flying with?) -->
+        <section class="crew-column">
+            <h2>Cabin Crew Team</h2>
+            <div class="crew-list">
+                <div class="crew-member">
+                    <div class="member-info">
+                        <strong>Sarah Jenkins</strong>
+                        <span>In-Flight Manager (IFM)</span>
+                    </div>
+                    <span class="pos">L1</span>
+                </div>
+                <div class="crew-member">
+                    <div class="member-info">
+                        <strong>Anil Mehta</strong>
+                        <span>Flight Attendant</span>
+                    </div>
+                    <span class="pos">R1</span>
+                </div>
+                <div class="crew-member highlight">
+                    <div class="member-info">
+                        <strong>You</strong>
+                        <span>Flight Attendant</span>
+                    </div>
+                    <span class="pos">L2</span>
+                </div>
+            </div>
+        </section>
+    </div>
+    </div>
+{% endblock %} 

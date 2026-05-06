@@ -1,0 +1,133 @@
+.profile-page-container {
+    display: flex;
+    max-width: 1100px;
+    margin: 50px auto;
+    background: white;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.05);
+}
+
+/* Sidebar Styling */
+.profile-sidebar {
+    flex: 1;
+    background: #f8fafc;
+    padding: 50px 30px;
+    border-right: 1px solid #e2e8f0;
+    text-align: center;
+}
+
+.main-avatar {
+    width: 100px;
+    height: 100px;
+    background: #003580;
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 900;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    border: 5px solid white;
+    box-shadow: 0 10px 20px rgba(0, 53, 128, 0.1);
+}
+
+.badge.silver {
+    background: #e2e8f0;
+    color: #475569;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 800;
+}
+
+.profile-nav {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.profile-nav a {
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 12px;
+    color: #64748b;
+    font-weight: 700;
+    transition: 0.3s;
+    text-align: left;
+}
+
+.profile-nav a.active, .profile-nav a:hover {
+    background: #003580;
+    color: white;
+}
+
+/* Main Content Area */
+.profile-main-content {
+    flex: 2.5;
+    padding: 50px;
+}
+
+.content-header { margin-bottom: 40px; }
+.content-header h3 { font-size: 1.8rem; color: #1e293b; }
+
+.form-section-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.input-field label {
+    display: block;
+    font-weight: 700;
+    color: #475569;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.input-field input {
+    width: 100%;
+    padding: 14px;
+    background: #f1f5f9;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.input-field input:focus {
+    background: white;
+    border-color: #003580;
+    box-shadow: 0 0 0 4px rgba(0, 53, 128, 0.1);
+    outline: none;
+}
+
+.profile-actions {
+    margin-top: 50px;
+    display: flex;
+    gap: 20px;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 30px;
+}
+
+.btn-save {
+    background: #003580;
+    color: white;
+    padding: 14px 40px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.btn-cancel {
+    background: none;
+    border: 1px solid #e2e8f0;
+    padding: 14px 40px;
+    border-radius: 12px;
+    font-weight: 700;
+    color: #64748b;
+    cursor: pointer;
+}
