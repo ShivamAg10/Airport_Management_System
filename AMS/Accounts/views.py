@@ -1,10 +1,23 @@
 from django.shortcuts import render, redirect
 from .models import CustomUser, Passenger
 from django.contrib import messages, auth
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def login(request):
-    
+    if request.method == "POST":
+        email = request.POST.get("email")
+        password = request.POST.get('password')
+        
+        user = auth.authenticate(
+            email = email,
+            password = password 
+        )
+        if user is None:
+            return redirect('register')
+        else:
+            auth.login(request,user)
+            return redirect("passenger")
     return render(request, "Accounts/login.html")
 
 def register(request):
@@ -49,5 +62,10 @@ def register(request):
             return redirect('register')
     return render(request, "Accounts/register.html")
 
+@login_required(login_url="login")
 def profile(request):
     return render(request, "Accounts/profile.html")
+
+def logout(request):
+    auth.logout(request)
+    return redirect("login")
