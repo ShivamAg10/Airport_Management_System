@@ -43,13 +43,18 @@
             <p>Join SkyFlow Airlines for a seamless travel experience.</p>
         </div>
 
-        <form method="POST" action="{% url 'register' %}" class="register-form">
+        <form method="POST" class="register-form">
             {% csrf_token %}
             
             <div class="form-grid">
                 <div class="input-group">
-                    <label for="full_name">Full Name (as per Passport)</label>
-                    <input type="text" id="full_name" name="name" placeholder="John Doe" required>
+                    <label for="full_name">First Name (as per Passport)</label>
+                    <input type="text" id="first_name" name="first_name" placeholder="John" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="full_name">Last Name (as per Passport)</label>
+                    <input type="text" id="last_name" name="last_name" placeholder="Doe" required>
                 </div>
 
                 <div class="input-group">
@@ -61,13 +66,18 @@
                     <label for="phone">Phone Number</label>
                     <div class="phone-input">
                         <span class="country-code">+91</span>
-                        <input type="tel" id="phone" name="phone" placeholder="9876543210" required>
+                        <input type="tel" id="phone" name="phone_number" placeholder="9876543210" required>
                     </div>
                 </div>
 
                 <div class="input-group">
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob" name="date_of_birth" required>
+                </div>
+
+                <div class="input-group">
                     <label for="aadhar">Aadhar Number</label>
-                    <input type="text" id="aadhar" name="aadhar" placeholder="12-digit UID" maxlength="12">
+                    <input type="text" id="aadhar" name="aadhar_number" placeholder="12-digit UID" maxlength="12">
                 </div>
 
                 <div class="input-group">
@@ -81,7 +91,17 @@
 
                 <div class="input-group">
                     <label for="passport">Passport Number</label>
-                    <input type="text" id="passport" name="passport" placeholder="Enter Passport ID" required>
+                    <input type="text" id="passport" name="passport_number" placeholder="Enter Passport ID" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="passport">Password</label>
+                    <input type="text" id="passport" name="password" placeholder="Enter Passport ID" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="passport">Confirm Password</label>
+                    <input type="text" id="passport" name="confirm_password" placeholder="Enter Passport ID" required>
                 </div>
             </div>
 
