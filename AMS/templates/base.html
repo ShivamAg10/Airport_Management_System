@@ -31,8 +31,71 @@
         <div class="nav-actions">
             
             {% block more_option %}{% endblock %}
-                
-            {% block login_option %}{% endblock %}
+            
+            
+            {% if user.is_authenticated %}
+                <div class="nav-right">
+                <div class="profile-dropdown">
+                    <button class="profile-trigger">
+                        <div class="avatar-wrapper">
+                            <div class="user-avatar">
+                                {{first_character}}
+                            </div>
+                        </div>
+                        <div class="user-info-text">
+                            <span class="user-name">{{user.first_name}} {{user.last_name}} <i class="arrow-down"></i></span>
+                            {% comment %} <span class="user-tier">Silver Tier Member</span> {% endcomment %}
+                        </div>
+                    </button>
+
+                    <div class="profile-menu">
+                        <div class="menu-header">
+                            <div class="large-avatar">{{first_character}}</div>
+                            <div class="detail-text">
+                                <h4>{{user.first_name}} {{user.last_name}}</h4>
+                                <span class="id-badge">{{user.email}}</span>
+                            </div>
+                        </div>
+            
+                        <div class="menu-body">
+                            <div class="personal-info-item">
+                                <span>Phone:</span>
+                                <strong>+91 {{user.phone_number}}</strong>
+                            </div>
+                            <div class="personal-info-item">
+                                <span>Nationality:</span>
+                                
+                                {% if  user.user_type == "superadmin" %}
+                                    <strong>N/A</strong>
+                                {% else %}
+                                    <strong>{{user.passenger.nationality}}</strong>
+                                {% endif %}
+                            </div>
+                            <div class="personal-info-item">
+                                <span>Passport:</span>
+                                {% if  user.user_type == "superadmin" %}
+                                    <strong>N/A</strong>
+                                {% else %}
+                                    <strong>{{user.passenger.passport_number}}</strong>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                    <div class="menu-footer">
+                        <a href="{% url 'profile' %}">
+                            ⚙️ Edit Profile
+                        </a>
+                        <a href="{% url 'logout' %}" class="btn-logout">Logout</a>
+                    </div>
+                </div>
+                </div>
+            {% else %}
+                <div class="auth-group">
+                <a href="{% url 'login' %}" class="btn-login">Login</a>
+                <a href="{% url 'register' %}" class="btn-register">Register</a>
+                </div>
+            {% endif %}
+        </div>
         </div>
     </div>
 </nav>

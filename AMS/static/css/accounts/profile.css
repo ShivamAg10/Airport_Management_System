@@ -33,6 +33,10 @@
     box-shadow: 0 10px 20px rgba(0, 53, 128, 0.1);
 }
 
+.user-id-info{
+    color: #1e293b;
+}
+
 .badge.silver {
     background: #e2e8f0;
     color: #475569;

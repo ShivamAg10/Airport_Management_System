@@ -64,7 +64,13 @@ def register(request):
 
 @login_required(login_url="login")
 def profile(request):
-    return render(request, "Accounts/profile.html")
+    user = request.user
+    parameters = {
+        "user" : user,
+        "first_character" : user.first_name[0],
+    }
+    # print(user.passenger.nationality)
+    return render(request, "Accounts/profile.html", parameters)
 
 def logout(request):
     auth.logout(request)

@@ -27,12 +27,12 @@
 {% endblock %}
 
 
-{% block login_option %}
+{% comment %} {% block login_option %}
     <div class="auth-group">
         <a href="{% url 'login' %}" class="btn-login">Login</a>
         <a href="{% url 'register' %}" class="btn-register">Register</a>
     </div>
-{% endblock %}
+{% endblock %} {% endcomment %}
     
 
 {% block hero %}
